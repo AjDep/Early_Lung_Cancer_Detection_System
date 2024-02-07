@@ -1,16 +1,33 @@
 import { useState } from 'react'
 import './App.css'
+import Header from './components/header/header';
+import Bottem_card from './components/Analysis/bottem_card';
+import Pie_chart from './components/Analysis/pie_chart';
+import Navbar from './components/Navbar/navbar';
+
+
+
 
 function App() {
   return (
     <div className="App">
-      <div className='navbar'></div>
+      <Navbar/>
       <div className='home'>
-        <div className='header'>
-          <h1>Analysis</h1>
-        </div>
+        <Header name="Analysis"/>
         <div className='content'>
-          <h1>i</h1>
+          <div className='top_container'>
+           <Pie_chart/>
+          </div>
+          <div className='bottem_container'>
+            <Bottem_card Details="asdasdsa" value="213"/>
+            <Bottem_card Details="asdasdsa" value="213"/>
+            <Bottem_card Details="asdasdsa" value="213"/>
+            <Bottem_card Details="asdasdsa" value="213"/>
+            <Bottem_card Details="asdasdsa" value="213"/>
+            <Bottem_card Details="asdasdsa" value="213"/>
+            <Bottem_card Details="asdasdsa" value="213"/>
+            <Bottem_card Details="asdasdsa" value="213"/>
+          </div>
         </div>
       </div>
     </div>

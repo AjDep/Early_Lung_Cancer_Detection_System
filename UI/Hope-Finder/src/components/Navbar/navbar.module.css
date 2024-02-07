@@ -1,0 +1,55 @@
+.navbar{
+    display: flex;
+    flex-direction: column;
+    padding: 0px 10px;
+    gap: 60px;
+    align-items: center;
+  }
+  
+.mid{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+}
+
+.bottem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+}
+
+
+.logo{
+    height: 90px;
+    width: 90px;
+  }
+
+.dashboard{
+    width: 80px;
+    height: 55px;
+}
+.profile{
+    width: 45px;
+    height: 60px;
+}
+.health{
+    width: 50px;
+    height: 60px;
+}
+
+.history{
+    width: 50px;
+    height: 50px;
+}
+.setting{
+    width: 50px;
+    height: 50px;
+}
+.logout{
+    width: 50px;
+    height: 50px;
+}
