@@ -1,0 +1,31 @@
+.App{
+  height: 100vh;
+  background-color: #772CF2;
+  display: grid;
+  grid-template-columns: 1fr 15fr;
+  font-family:'poppins' ;
+
+}
+
+.navbar{
+  display: flex;
+  flex-direction: column;
+  padding: 16px 0;
+}
+
+.header h1{
+  margin: 0;
+  padding-top: 5px;
+  color: white;
+ 
+}
+.header{
+  padding-left: 10px;
+  height: 5vh;
+}
+.content{
+  background-color: rgb(255, 255, 255);
+  padding-left: 10px;
+  height: 92vh;
+  border-radius: 20px 0px 0px;
+}
