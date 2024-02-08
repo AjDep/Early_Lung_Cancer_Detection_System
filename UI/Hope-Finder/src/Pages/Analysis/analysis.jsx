@@ -3,7 +3,7 @@ import Bottem_card from './../../components/Analysis/bottem_card';
 import Pie_chart from './../../components/Analysis/pie_chart';
 import Navbar from './../../components/Navbar/navbar';
 import style from './anlysis.module.css';
-
+import lung from './../../assets/Lung 2.png'
 
 function Analysis(){
     return(
@@ -14,6 +14,7 @@ function Analysis(){
         <div className={style.content}>
           <div className={style.top_container}>
            <Pie_chart/>
+           <img src={lung} alt=""  className={style.lung}/>
           </div>
           <div className={style.bottem_container}>
             
@@ -22,10 +23,12 @@ function Analysis(){
             <Bottem_card Details="Number of cancer patients with identical alkane levels" value="1538"/>
             <Bottem_card Details="Non-cancer individuals with equivalent alkane levels." value="1025"/>
             <Bottem_card Details="Similar alkane levels as a percentage of total users" value="25.3%"/>
-            <Bottem_card Details="Alkane level similarity among cancer-diagnosed individuals as a percentage" value="60.0%"/>
-            <Bottem_card Details="" value="40.0%"/>
+            <Bottem_card Details="Cancer-diagnosed individuals as a percentage" value="60.0%"/>
+            
             </div>
-            <div className={style.bottem_right}></div>
+            <div className={style.bottem_right}>
+             
+            </div>
           </div>
         </div>
       </div>
