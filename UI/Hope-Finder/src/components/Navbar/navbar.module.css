@@ -1,8 +1,9 @@
 .navbar{
     display: flex;
     flex-direction: column;
-    padding: 0px 10px;
-    gap: 60px;
+    padding: 0px;
+    margin: 0px;
+    gap: 90px;
     align-items: center;
   }
   
@@ -24,32 +25,32 @@
 
 
 .logo{
-    height: 90px;
-    width: 90px;
+    height: 80px;
+    width: 80px;
   }
 
 .dashboard{
-    width: 80px;
-    height: 55px;
+    width: 70px;
+    height: 45px;
 }
 .profile{
-    width: 45px;
-    height: 60px;
+    width: 35px;
+    height: 50px;
 }
 .health{
-    width: 50px;
-    height: 60px;
+    width: 40px;
+    height: 50px;
 }
 
 .history{
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
 }
 .setting{
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
 }
 .logout{
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
 }

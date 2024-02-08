@@ -4,7 +4,7 @@
 }
 .content{
     background-color: rgba(255, 255, 255, 0.969);
-    padding-left: 10px;
+    padding-left: 5px;
     margin-top: 15px;
     height: 91vh;
     border-radius: 50px 0px 0px 50px;
@@ -21,5 +21,13 @@
     margin-top: 16px;
     margin-left: 30px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr ;
+}
+.bottem_left{
+    display: grid;
+    gap:30px;
+    grid-template-columns: 1fr 1fr 1fr ;
+}
+.bottem_right{
+    
 }

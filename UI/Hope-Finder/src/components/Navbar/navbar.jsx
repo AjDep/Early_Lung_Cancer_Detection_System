@@ -1,4 +1,5 @@
 import Logo from './../../assets/Logo.svg';
+import TestLogo from './../../assets/TestLogo.svg';
 import Dashboard from './../../assets/Navbar_Dashboard_btn.svg';
 import Profile from './../../assets/Navbar_Profile-Icon.svg';
 import Health from './../../assets/Navbar_Health-Icon.svg';
@@ -11,7 +12,7 @@ function Navbar(){
     return(
         <div className={style.navbar}>   
             <div className={style.top}>
-                <img src={Logo} alt="Logo" className={style.logo}/>
+                <img src={TestLogo} alt="Logo" className={style.logo}/>
             </div>
 
             <div className={style.mid}>

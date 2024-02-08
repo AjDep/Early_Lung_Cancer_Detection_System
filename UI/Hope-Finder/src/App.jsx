@@ -8,7 +8,8 @@ function App() {
     <div className="App">
       {/*<Analysis/>
       <Dashboard/>*/}
-      <Dashboard/>
+      
+      <Analysis/>
     </div>
       
   );

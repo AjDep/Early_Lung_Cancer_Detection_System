@@ -16,14 +16,16 @@ function Analysis(){
            <Pie_chart/>
           </div>
           <div className={style.bottem_container}>
-            <Bottem_card Details="asdasdsa" value="213"/>
-            <Bottem_card Details="asdasdsa" value="213"/>
-            <Bottem_card Details="asdasdsa" value="213"/>
-            <Bottem_card Details="asdasdsa" value="213"/>
-            <Bottem_card Details="asdasdsa" value="213"/>
-            <Bottem_card Details="asdasdsa" value="213"/>
-            <Bottem_card Details="asdasdsa" value="213"/>
-            <Bottem_card Details="asdasdsa" value="213"/>
+            
+            <div className={style.bottem_left}>
+            <Bottem_card Details="Number of people with the same result" value="2563"/>
+            <Bottem_card Details="Number of cancer patients with identical alkane levels" value="1538"/>
+            <Bottem_card Details="Non-cancer individuals with equivalent alkane levels." value="1025"/>
+            <Bottem_card Details="Similar alkane levels as a percentage of total users" value="25.3%"/>
+            <Bottem_card Details="Alkane level similarity among cancer-diagnosed individuals as a percentage" value="60.0%"/>
+            <Bottem_card Details="" value="40.0%"/>
+            </div>
+            <div className={style.bottem_right}></div>
           </div>
         </div>
       </div>
