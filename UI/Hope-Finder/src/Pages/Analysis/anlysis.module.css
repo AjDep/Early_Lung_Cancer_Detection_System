@@ -1,9 +1,5 @@
-.contaner{
-    display: grid;
-    grid-template-columns: 1fr 15fr;
-}
 .content{
-    background-color: rgba(255, 255, 255, 0.969);
+    background-color: #f5f5f5;
     padding-left: 5px;
     margin-top: 15px;
     height: 91vh;
