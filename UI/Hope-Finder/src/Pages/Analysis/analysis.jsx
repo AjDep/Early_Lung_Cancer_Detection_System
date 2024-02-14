@@ -19,8 +19,7 @@ function Analysis(){
    
     <div>
       <Header name="Analysis"/>
-
-      <div className={style.content}>
+      <div className="content">
         <div className={style.top_container}>
           <Pie_chart/>
           <img src={lung} alt=""  className={style.lung}/>

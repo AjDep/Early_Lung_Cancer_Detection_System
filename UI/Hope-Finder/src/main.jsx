@@ -4,11 +4,22 @@ import App from './App.jsx'
 import './index.css'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Analysis from './Pages/Analysis/analysis.jsx';
+import Dashboard from './Pages/Dashboard/dashboard.jsx';
 
 const router = createBrowserRouter([
   {
     element:<App/>,
-    path:"/",
+    children:[
+      {
+        path:"/analysis",
+        element:<Analysis/>,
+      },
+      {
+        path:"/",
+        element:<Dashboard/>,
+      },
+    ],
   },
 ]);
 
