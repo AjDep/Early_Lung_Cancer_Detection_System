@@ -13,7 +13,7 @@ function Navbar(props){
 
     if(props.route === "Dashboard"){
         return(
-            <NavLink to={"/"}>
+            <NavLink to={"/"} id={props.theme}>
                 {(linkProps)=>{
                     return(
                         <div className={linkProps.isActive ? style.container_active :style.container}>
