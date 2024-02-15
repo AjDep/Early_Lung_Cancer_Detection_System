@@ -25,13 +25,13 @@
     height: 40px;
 }
 
-.container{
+.light_container{
     padding: 0px;
     padding-top: 10px;
     margin: 0;
     width: 100px;
 }
-.container:hover{
+.light_container:hover{
     padding: 0px;
     padding-top: 10px;
     margin: 0;
@@ -40,7 +40,7 @@
     background-color: #7f13cc;
     box-shadow: 0px 2px 6px 0px rgb(38, 35, 35);
 }
-.container_active {
+.light_container_active {
     padding: 0px;
     padding-top: 10px;
     margin: 0;
@@ -51,12 +51,48 @@
   filter: drop-shadow(15px 0 0 15px rgb(8, 8, 8));
 
 }
-.container_active img{
+.light_container_active img{
     
     -webkit-filter: drop-shadow(0 0 5px rgb(6, 6, 6)); /* Adds a red shadow on hover */
   filter: drop-shadow(0 0 2px  rgb(8, 8, 8));
 }
 
-#dark .container_active{
+
+
+
+
+
+.dark_container{
+    padding: 0px;
+    padding-top: 10px;
+    margin: 0;
+    width: 100px;
+}
+.dark_container:hover{
+    padding: 0px;
+    padding-top: 10px;
+    margin: 0;
+    width: 100px;
+    border-radius:50px 0px 0px 50px ;
     background-color: #25CEDE;
+    box-shadow: 0px 2px 6px 0px rgb(38, 35, 35);
+}
+.dark_container .imgdiv:hover{
+    filter: invert(100%);
+}
+
+.dark_container_active {
+    padding: 0px;
+    padding-top: 10px;
+    margin: 0;
+    width: 100px;
+    border-radius:50px 0px 0px 50px ;
+    background-color: #FFFFFF;
+    -webkit-filter: drop-shadow(15px 0 0 15px  rgb(6, 6, 6)); /* Adds a red shadow on hover */
+  filter: drop-shadow(15px 0 0 15px rgb(8, 8, 8));
+
+}
+
+.dark_container_active .imgdiv{
+    filter: invert(100%);
 }

@@ -7,4 +7,11 @@
   .header{
     padding-left: 60px;
     height: 6vh;
+    display: grid;
+    grid-template-columns: 15fr 1fr;
+  }
+  .switch{
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
