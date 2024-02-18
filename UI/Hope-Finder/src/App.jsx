@@ -9,7 +9,7 @@ import { createContext,useState } from 'react';
 export const TheamContext = createContext(null);
 
 function App() {
-  const [theme,setTheam] = useState("dark");
+  const [theme,setTheam] = useState("light");
 
   const toggleTheam = () => {
     setTheam((curr) => (curr === "light" ? "dark" : "light"));
