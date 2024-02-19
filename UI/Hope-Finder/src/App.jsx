@@ -2,6 +2,7 @@
 import './App.css';
 import { Outlet } from 'react-router-dom';
 import Navbar from './components/Navbar/navbar';
+import Header from './components/header/header';
 import TestLogo from './assets/TestLogo.svg';
 import ReactSwitch from "react-switch";
 import { createContext,useState } from 'react';
@@ -9,11 +10,13 @@ import { createContext,useState } from 'react';
 export const TheamContext = createContext(null);
 
 function App() {
+
+
   const [theme,setTheam] = useState("light");
 
   const toggleTheam = () => {
     setTheam((curr) => (curr === "light" ? "dark" : "light"));
-  };
+  }
  
   if(theme === "dark"){
     return (
@@ -24,9 +27,9 @@ function App() {
           <div className='navbar'>
             <div >
               <img src={TestLogo} alt="Logo" className='logo'/>
-              <div className='withswitch'>
+                <div children='divcenter'>
                 <ReactSwitch onChange={toggleTheam} checked={theme === "dark"}/>
-              </div>
+                </div>
             </div>
            
 
@@ -58,7 +61,9 @@ function App() {
           <div className='navbar'>
             <div className='withswitch'>
               <img src={TestLogo} alt="Logo" className='logo'/>
-              <ReactSwitch onChange={toggleTheam} checked={theme === "dark"}/>
+              <div children='divcenter'>
+                <ReactSwitch onChange={toggleTheam} checked={theme === "dark"}/>
+              </div>
             </div>
 
             <div className='mid'>

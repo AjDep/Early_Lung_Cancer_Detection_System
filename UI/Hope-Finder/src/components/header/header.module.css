@@ -15,3 +15,9 @@
     justify-content: center;
     align-items: center;
   }
+  #light{
+    background-color: #772CF2;
+  }
+  #dark{
+    background-color: #1F2022;
+  }

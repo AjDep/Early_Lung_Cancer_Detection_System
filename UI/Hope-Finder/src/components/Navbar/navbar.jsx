@@ -1,5 +1,4 @@
-import Logo from './../../assets/Logo.svg';
-import TestLogo from './../../assets/TestLogo.svg';
+
 import Dashboard from './../../assets/Navbar_Dashboard_btn.svg';
 import Profile from './../../assets/Navbar_Profile-Icon.svg';
 import Health from './../../assets/Navbar_Health-Icon.svg';
