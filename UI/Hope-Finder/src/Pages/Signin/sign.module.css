@@ -1,0 +1,222 @@
+.page {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr;
+   /* First column is twice as wide as the second */
+  background-color: #9069FF;
+}
+
+.container {
+  height: 100vh; /* Full height */
+}
+
+.first {
+  background-color: white;
+  width: 850px;
+}
+
+
+.form {
+  /* Add your form styles here */
+}
+
+.login h1 {
+  color: black;
+  padding-left: 350px;
+  font-size: 50px;
+  font-weight: bold;
+  letter-spacing: 10px;
+}
+
+.login h2{
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+    padding-left: 160px;
+   
+}
+
+input[type="text"],
+input[type="password"] {
+  font-size: 20px;
+  width: 480px;
+  height: 50px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  padding-left: 20px;
+  border-radius: 20px;
+  border-color: #9069FF;
+  background-color: rgba(184, 140, 255, 0.31);
+}
+
+input[type = "text"]{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.input{
+    padding-left: 170px;
+    
+}
+
+input[type="submit"] {
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  background: rgba(91, 17, 209, 0.6);
+  border: 1px solid #680f957f;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  width: 380px;
+  height: 50px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+
+input[type="submit"]:hover {
+  background: #705aee;
+}
+
+.button {
+  display: flex;
+  padding-left: 230px;
+}
+
+.forgot p{
+    font-size: 20px;
+    padding-left: 170px;
+    color: #5740DE;
+}
+
+.socialLogin{
+   padding-left: 230px;
+}
+
+.googleLogin button{
+  margin-top: 100px;
+  cursor: pointer;
+  font-size: 15px;
+  background: rgb(243, 239, 250);
+  border: 1px solid #f4f1f67f;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 10px;
+  width: 380px;
+  height: 50px;
+  font-size: 18px;
+  font-weight:600;
+}
+
+.facebookLogin button{
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    background: rgb(243, 239, 250);
+    border: 1px solid #f4f1f67f;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: 380px;
+    height: 50px;
+    font-size: 18px;
+    font-weight:600;
+}
+
+.facebookLogin strong, .googleLogin strong{
+    font-weight: 900;
+}
+
+
+.googleLogin button:hover,
+.facebookLogin button:hover {
+  background-color: rgb(220, 217, 217); /* Change background color on hover */
+  color: #000; /* Change text color on hover */
+}
+
+.box1 {
+    width: 450px;
+    height: 600px;
+    background:#beaaff;
+    opacity: 1;
+    border-radius: 70px;
+    position: absolute;
+    overflow: hidden;
+    margin-left: 60px;
+    margin-top: 20px;
+    position: relative; /* Ensure relative positioning for absolute children */
+  }
+  
+  .box2 {
+    width: 450px;
+    height: 610px; /* Half of the height of box2 */
+    background: #6B2CF2;
+    opacity: 1;
+    position: absolute;
+    border-radius: 70px;
+    overflow: hidden;
+    margin-left: 1050px;
+    margin-top: 50px;
+  }
+
+  .innerBox {
+    width: 100%; /* Adjust the width as needed */
+    height: 40%; /* Adjust the height as needed */
+    background: white; /* Background color of the inner box */
+    opacity: 0.6; /* Adjust opacity as needed */
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    
+  }
+  
+  .welcomeMessage {
+    color: solid black;
+    font-size: 48px; /* Adjust font size as needed */
+    font-weight: bold; /* Make the text bold */
+     /* Center the text horizontally */
+    padding-left: 7px;
+    letter-spacing: 10px;
+    font-style:italic;
+  }
+  .backText {
+    display: block; /* Display "Back" as block to position it below "Welcome" */
+    font-size: 48px; /* Adjust font size as needed */
+    padding-left: 180px;
+    letter-spacing: 10px;
+    font-style:italic;
+  }
+
+  .girl_with_laptop{
+    margin-top: 230px;
+    width: 320px;
+    height: 340px;
+    margin-left: 60px;
+  }
+
+  .bottomButtons {
+    text-align: center; /* Align button to center */
+    padding-left: 1110px;
+    width: 300px;
+   
+  }
+  
+  .bottomButtons button {
+    background-color: #0c0c0c; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* Remove button border */
+    padding: 15px 60px; /* Button padding */
+    border-radius: 5px; /* Button border radius */
+    font-size: 18px; /* Button font size */
+    cursor: pointer; /* Show pointer on hover */
+  }
+  
+  .bottomButtons button:hover {
+    background-color: #6c30c2; /* Change background color on hover */
+  }
+
+
+
