@@ -16,29 +16,29 @@ function Sign() {
               <h1>LOGIN</h1>
               <h2>Stay Updated on Your Healthy World!</h2>
               <form>
-                <div className={style.input}>
-                  <input
-                    type="text"
-                    placeholder="Email or Phone"
-                    name="uname"
-                    required
-                  />
-                </div>
-                <div className={style.input}>
-                  <input
-                    type="password"
-                    placeholder="Password"
-                    name="pass"
-                    required
-                  />
-                </div>
+              <div className={style.input}>
+      <input type="text"
+      
+        placeholder="Email or phone"
+        name="email"
+        required
+      />
+    </div>
+    <div className={style.input}>
+      <input type="password"
+        placeholder="Enter Password"
+        name="password"
+        required
+      />
+    </div>
+    
                 <div className={style.forgot}>
                   <p>Forgot Password?</p>
                 </div>
                 <div className={style.button}>
-                  <input type="submit" value="Login Now" />{" "}
-                  {/* Login Now button */}
+                  <button type="submit">Login Now</button>
                 </div>
+                </form>
                 <div className={style.socialLogin}>
                   <div className={style.googleLogin}>
                     <button>
@@ -51,15 +51,16 @@ function Sign() {
                     </button>
                   </div>
                 </div>
-              </form>
+              
             </div>
           </div>
           <div className={style.bottomButtons}>
-            <button onClick={style.handleCreateAccount}>Create an Account</button>
+            <button onClick={style.handleCreateAccount}>
+              Create an Account
+            </button>
           </div>
         </div>
-       
-       
+
         <div className={style.box2}></div>
         <div className={style.box1}>
           <img
@@ -71,10 +72,8 @@ function Sign() {
             <p className={style.welcomeMessage}>
               Welcome<span className={style.backText}>Back!</span>
             </p>
-            
-          
+          </div>
         </div>
-      </div>
       </div>
     </div>
   );

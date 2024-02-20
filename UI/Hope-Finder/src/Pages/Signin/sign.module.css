@@ -1,7 +1,6 @@
 .page {
   display: grid;
   grid-template-columns: 2fr 1.5fr;
-   /* First column is twice as wide as the second */
   background-color: #9069FF;
 }
 
@@ -11,12 +10,7 @@
 
 .first {
   background-color: white;
-  width: 850px;
-}
-
-
-.form {
-  /* Add your form styles here */
+  width: 900px;
 }
 
 .login h1 {
@@ -31,12 +25,12 @@
     color: black;
     font-size: 30px;
     font-weight: bold;
-    padding-left: 160px;
+    padding-left: 180px;
    
 }
 
-input[type="text"],
-input[type="password"] {
+.input input[placeholder="Email or phone"]
+{
   font-size: 20px;
   width: 480px;
   height: 50px;
@@ -44,57 +38,70 @@ input[type="password"] {
   padding-left: 20px;
   border-radius: 20px;
   border-color: #9069FF;
-  background-color: rgba(184, 140, 255, 0.31);
+  
+  margin-top: 20px;
+  margin-left: 200px;
 }
 
-input[type = "text"]{
-    margin-top: 30px;
-    margin-bottom: 20px;
-}
-
-.input{
-    padding-left: 170px;
-    
-}
-
-input[type="submit"] {
-  margin-top: 10px;
-  cursor: pointer;
-  font-size: 15px;
-  background: rgba(91, 17, 209, 0.6);
-  border: 1px solid #680f957f;
-  color: #fff;
-  padding: 10px 20px;
+.input input [placeholder="Enter Password"]
+{
+  font-size: 20px;
+  width: 450px;
+  height: 45px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  padding-left: 20px;
   border-radius: 20px;
-  width: 380px;
-  height: 50px;
-  font-size: 18px;
-  font-weight: bold;
+  border-color: #9069FF;
+  background-color: rgba(184, 140, 255, 0.31);
+  margin-top: 20px;
+  
 }
 
 
 
-input[type="submit"]:hover {
-  background: #705aee;
+
+
+
+
+
+.button button{
+  background-color: #5740DE;
+  font-size: 20px;
+  margin-left: 15px;
+  width: 350px;
+  height: 50px;
+  border:none;
+  color: white;
+  margin-top: 20px;
+  border-radius: 10px;
+
+}
+
+
+
+.button button:hover {
+  background: #8976f6;
+  color: black;
 }
 
 .button {
   display: flex;
-  padding-left: 230px;
+  padding-left: 260px;
 }
 
 .forgot p{
     font-size: 20px;
     padding-left: 170px;
+    padding-top: 10px;
     color: #5740DE;
 }
 
 .socialLogin{
-   padding-left: 230px;
+   padding-left: 260px;
 }
 
 .googleLogin button{
-  margin-top: 100px;
+  margin-top: 70px;
   cursor: pointer;
   font-size: 15px;
   background: rgb(243, 239, 250);
@@ -201,6 +208,7 @@ input[type="submit"]:hover {
     text-align: center; /* Align button to center */
     padding-left: 1110px;
     width: 300px;
+    margin-top: 1px;
    
   }
   
@@ -212,11 +220,14 @@ input[type="submit"]:hover {
     border-radius: 5px; /* Button border radius */
     font-size: 18px; /* Button font size */
     cursor: pointer; /* Show pointer on hover */
+   
+    
   }
   
   .bottomButtons button:hover {
     background-color: #6c30c2; /* Change background color on hover */
   }
+
 
 
 

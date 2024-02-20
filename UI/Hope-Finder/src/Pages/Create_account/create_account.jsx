@@ -78,7 +78,7 @@ function Create_account(){
                     </button>
                   </div>
                   <div className={style.member}>
-                    <p>Already a member? <strong>Log In</strong></p>
+                    <p>Already a member? <strong className={style.loginHover}>Log In</strong></p>
                   </div>
                 </div>
               </form>

@@ -262,3 +262,9 @@ input[type="submit"]:hover {
     left: 955px;
     overflow: hidden;
   }
+
+  .loginHover:hover {
+    
+    color: white;
+    cursor: pointer; /* Change cursor to pointer */
+  }

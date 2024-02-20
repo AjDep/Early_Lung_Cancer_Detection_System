@@ -4,7 +4,7 @@
 }
 
 .content{
-  background-color:rgb(248, 238, 254);
+  background: #ddd3f9;
   padding-left: 5px;
   margin-top: 15px;
   height: 91vh;
@@ -12,120 +12,94 @@
   box-shadow: 0px 3px 5px 0px rgb(0, 0, 0);
   display: grid;
   grid-template-columns: 1fr 1fr;
+  
+}
+
+h2{
+  font-size: 25px;
+  padding-left: 60px;
+  margin-bottom: 30px;
+  margin-top: 50px;
+  font-weight: normal;
 }
 
 
-.searchBar {
+/*.searchBar {
   display: flex;
   align-items: center;
-  padding: 35px 130px 20px 180px;
+  padding: 35px 160px 0px 100px;
   width: 600px;
   margin-bottom: 30px;
 
 }
 
-
 .searchBar input {
-  padding: 10px;
+  padding: 1px;
   flex: 1;
   margin-right: 10px;
   border-radius: 20px;
   font-size: 18px;
   background-color:#f6f6f7;
   border-color: #6309f5;
+}*/
+
+.measurementInputsOne input[name="weight"],
+ input[name="height"], input[name="Co2"]{
+  color: black;
+  padding: 10px 30px 10px 30px;
+  font-size: 18px;
+  border-radius: 20px 20px 50px 20px;
+  width: 400px;
+  margin-left: 60px;
+  margin-bottom: 30px;
+  background-color:white;
+  border-color: #070707;
 }
 
-.measurementInputsOne {
-  display: flex;
-  flex-direction: column;
-  padding: 20px 20px 0px 60px;
-  width: 500px;
-  margin-bottom: 20px;
-}
 
-.measurementInputsOne input{
-  padding: 10px;
+
+.measurementInputsTwo select[name="bloodType"],
+.measurementInputsTwo select[name="smokingStatus"] {
+  padding: 10px 0px 10px 30px ;
   flex: 1;
-  margin-right: 10px;
   border-radius: 7px 7px 30px 7px;
   font-size: 18px;
-  margin-bottom: 10px;
-  background-color:#d4c6fe60;
-  color: rgba(74, 73, 73, 0.796);
-  border-color: #8240EE;
-}
-
-.measurementInputsOne input:first-child {
-  margin-bottom: 30px; /* Adjust the value as needed */
-}
-
-.measurementInputsTwo {
-  display: flex;
-  flex-direction: column;
-  padding: 0px 20px 0px 60px;
-  width: 600px;
-  color: rgb(138, 43, 226);
-  
-}
-
-.measurementInputsTwo select{
-  padding: 10px;
-  flex: 1;
-  margin-right: 10px;
-  border-radius: 7px 7px 30px 7px;
-  font-size: 18px;
-  margin-bottom: 10px;
-  background-color:#d4c6fe60;
-  color: rgba(74, 73, 73, 0.796);
+  margin-bottom: 30px;
+  background-color:white;
+  color: black;
   border-color: black;
   border-width: 2px;
-  border-color: #8240EE;
+  border-color: #040404;
+  width: 550px;
+  margin-left: 60px;
 }
 
-.measurementInputsTwo select:first-child {
-  margin-bottom: 30px; /* Adjust the value as needed */
+
+
+
+
+
+.submit{
+  margin-top: 30px;
+  margin-left: 60px;
 }
 
-.measurementInputsThree {
-  display: flex;
-  flex-direction: column;
-  padding: 0px 20px 0px 60px;
-  width: 600px;
-  
-  
-}
-
-.measurementInputsThree input{
-  padding: 10px;
-  flex: 1;
-  margin-right: 10px;
-  border-radius: 7px 7px 30px 7px;
-  font-size: 18px;
-  margin-bottom: 10px;
-  background-color: #d4c6fe60;
-  color: rgba(74, 73, 73, 0.796);
-  border-color: #8240EE;
-}
-
-.measurementInputsThree input:first-child {
-  margin-bottom: 10px; /* Adjust the value as needed */
-  margin-top:20px;
-}
-
-.viewMore{
-  padding: 40px 40px 40px 60px;
-}
-
-.viewMore button{
+.submit button{
   background-color:#8240EE;
   border-color: #8240EE;
 }
 
-.viewMoreBtn{
+.submitBtn{
   font-size: 18px;
-  border-radius: 40px;
-  padding: 12px 30px 12px 30px;
+  border-radius: 5px;
+  padding: 8px 18px;
   color: rgb(247, 246, 248);
+  transition: background-color 0.3s, color 0.3s; /* Add transition effect */
+}
+
+.submitBtn:hover {
+  background-color: #6a2aff6f; /* Change background color on hover */
+  color: rgb(6, 6, 6); /* Change text color on hover */
 }
 
 .bottomButtons{
@@ -140,10 +114,18 @@
 
 .downloadBtn,.uploadBtn{
   margin-right: 50px;
+  margin-top: 30px;
   font-size: 18px;
   border-radius: 10px;
   padding: 10px 20px 10px 20px;
   color: rgb(246, 242, 251);
+  transition: background-color 0.3s, color 0.3s; /* Add transition effect */
+}
+
+.downloadBtn:hover,
+.uploadBtn:hover {
+  background-color: #6a2affa5; /* Change background color on hover */
+  color: rgb(4, 4, 4); /* Change text color on hover */
 }
 
 .secondColumn{
@@ -204,16 +186,16 @@
 
 .girl{
   width: 260px;
-  height: 46vh;
+  height:46vh;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   opacity: 1;
   position: absolute;
-  top: 380px;
-  left: 0px;
+  top: 380px; /* Adjust the top position as needed */
+  right: 0px; /* Position the image on the right side */
   border-bottom-right-radius: 48px;
   overflow: hidden;
-  padding: 25px 0px 1000px 1200px;
+  padding: 25px; /* Reduce the padding to avoid overlap */
 
 }
