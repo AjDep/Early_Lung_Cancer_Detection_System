@@ -1,0 +1,285 @@
+.contaner{
+    display: grid;
+    grid-template-columns: 1fr 15fr;
+}
+.content{
+    background-color: rgba(255, 255, 255, 0.969);
+    padding-left: 5px;
+    margin-top: 15px;
+    height: 91vh;
+    border-radius: 50px 0px 0px 50px;
+    box-shadow: 0px 3px 5px 0px rgb(0, 0, 0);
+}
+
+.top_container{
+   
+    display: flex;
+    justify-content: flex-end; /* Align items to the right */
+    overflow: hidden;
+}
+
+.top_container a{
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 30px 20px;
+    text-decoration: none;
+    font-size: 17px;
+    margin-left: 10px;
+    padding-left: 50px;
+    
+}
+
+.top_container a:last-child {
+    margin-right: 50px; /* Adjust the margin-right for the last element */
+}
+
+.top_container a:hover{
+    color: rgba(119, 44, 242, 1);
+}
+
+.profileContainer{
+    display: flex;
+    align-items: center;
+    padding-left: 30px; 
+}
+
+.girl{
+    width: 120px;
+    height: 120px;   
+    margin-top: -80px;
+}
+
+.profileHead{
+    margin-left: 20px;
+    font-family: Poppins, sans-serif;  
+}
+
+.profileHead h4{
+    font-size: 30px;
+    font-weight: 400;
+    margin-top: -40px;
+}
+
+.profileHead h5{
+    font-size: 20px;
+    font-weight: 200;
+    margin-top: -45px;
+}
+
+.profileBody{
+    margin-left: 40px;
+}
+
+.profile h5{
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: semibold;
+    margin-top: 12px;
+}
+
+.profile h6{
+    color: rgba(0,0,0,0.3799999952316284);
+    font-family: Poppins;
+    font-weight: light;
+    font-size: 18px;
+    opacity: 1;
+    text-align: left;
+    margin-top: -30px;
+    
+
+}
+
+.userName h5{
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: semibold;
+    margin-top: 7px;
+}
+
+.measurementInputOne{
+    display: flex;
+    padding: 10px 20px 0px 61px;
+    width: 400px;
+    height: 30px;
+    margin-bottom: 10px;
+    margin-top: -35px;   
+    margin-right: 150px;
+    margin-left: 220px;
+}
+
+.measurementInputOne input {
+    padding: 20px;
+    flex: 1;
+    margin-right: 0;
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: light;
+    margin-bottom: 10px;
+    background-color: rgba(217, 217, 217, 0.15);
+    color: rgba(119, 44, 242, 1);
+    border-color: rgba(118, 83, 216, 0.92);
+    
+    
+}
+
+.measurementInputOne input:nth-child(1) {
+    width: 120px; /* Or whatever size you prefer for the first input */
+    /* Other styles as needed (e.g., padding, margin) */
+}
+
+.measurementInputOne input:nth-child(2) {
+    width: 450px; /* Making the second input larger */
+    /* Additional styling as needed */
+}
+
+
+.photo h5{
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: semibold;
+    margin-top: 10px;
+}
+
+.photo h6{
+    color: rgba(0,0,0,0.3799999952316284);
+    font-family: Poppins;
+    font-weight: ExtraLight;
+    font-size: 18px;
+    opacity: 1;
+    text-align: left;
+    margin-top: -24px;
+}
+
+
+
+.profileImage{
+    width: 70px;
+    height: 70px;
+    margin-top: -150px;
+    margin-bottom: 30px;
+    margin-left: 450px;
+   
+    
+}
+
+.submitContainer{
+    display: flex;
+    gap: 50px;
+    justify-content: right;
+    margin-right: 650px;
+    margin-top: -85px;
+    color: rgba(119, 44, 242, 1);
+    
+}
+
+.submit{
+    display: flex;
+    justify-content: right;
+    font-size: 18px;
+    font-weight: 400;
+    cursor: pointer;    
+}
+
+.submitContainer :hover{
+    color: black;
+}
+
+
+.bio h5{
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: semibold;
+    margin-top: 10px;
+}
+
+.bioTextarea {
+    width: 40%; /* Full width of its parent */
+    height: 50px; /* Enough height for a short bio */
+    padding: 10px; /* Some padding inside the textarea */
+    border-radius: 10px; /* Rounded corners */
+    border: white; /* Light grey border */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Slight inner shadow for depth */
+    font-family: 'Poppins', sans-serif; /* Consistent font */
+    font-size: 20px; /* Readable font size */
+    margin-top: -15px; /* Spacing from the previous element */
+    resize: vertical; /* Allows vertical resizing only */
+    color: rgba(119, 44, 242, 1);
+    font-weight: ExtraLight;
+    background-color: rgba(255, 255, 255, 0.969);
+    font-family: Poppins;
+}
+
+.email h5{
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: semibold;
+    margin-top: 10px;
+}
+
+.measurementInputTwo{
+    display: flex;
+    padding: 10px 20px 0px 61px;
+    width: 400px;
+    height: 30px;
+    margin-bottom: 10px;
+    margin-top: -35px;   
+    margin-left: 220px;    
+}
+
+.measurementInputTwo input {
+    padding: 20px;
+    flex: 1;
+    margin-left: 50px;
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: light;
+    margin-bottom: 10px;
+    background-color: rgba(217, 217, 217, 0.15);
+    color: rgba(119, 44, 242, 1);
+    border-color: rgba(118, 83, 216, 0.92);
+    border-radius: 10px;
+    
+}
+
+.emptyBox1 {
+    width: 95%; /* Full width of its container */
+    height: 0px; /* Adjust the height as needed */
+    border: 2px solid #cccccc76; /* Light grey border */
+    margin-top: -30px; /* Margin top for some space above */
+    background-color: #f9f9f9; /* Light background color, adjust as needed */
+    
+    /* Optional: Add more styling here, such as border-radius for rounded corners */
+}
+
+.emptyBox2 {
+    width: 95%; /* Full width of its container */
+    height: 0px; /* Adjust the height as needed */
+    border: 2px solid #cccccc76;; /* Light grey border */
+    margin-top: 30px; /* Margin top for some space above */
+    background-color: #f9f9f9; /* Light background color, adjust as needed */
+    
+    /* Optional: Add more styling here, such as border-radius for rounded corners */
+}
+
+.emptyBox3 {
+    width: 95%; /* Full width of its container */
+    height: 0px; /* Adjust the height as needed */
+    border: 2px solid #cccccc76; /* Light grey border */
+    margin-top: 30px; /* Margin top for some space above */
+    background-color: #f9f9f9; /* Light background color, adjust as needed */
+    
+    /* Optional: Add more styling here, such as border-radius for rounded corners */
+}
+
+.emptyBox4 {
+    width: 95%; /* Full width of its container */
+    height: 0px; /* Adjust the height as needed */
+    border: 2px solid #cccccc76;; /* Light grey border */
+    margin-top: 10px; /* Margin top for some space above */
+    background-color: #f9f9f9; /* Light background color, adjust as needed */
+    
+    /* Optional: Add more styling here, such as border-radius for rounded corners */
+}
+
