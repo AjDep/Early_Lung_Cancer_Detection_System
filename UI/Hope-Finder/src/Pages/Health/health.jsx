@@ -1,8 +1,11 @@
 import React from "react";
-import Header from "./../../components/header/header";
+import Header from "./../../components/Header/header";
 import Navbar from "./../../components/Navbar/navbar";
 import style from "./health.module.css";
 import Girl from "./../../assets/Girl.png";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
+
 
 function Health() {
   return (
@@ -58,6 +61,7 @@ function Health() {
   
 
             <div className={style.bottomButtons}>
+            
               <button className={style.downloadBtn}>Download PDF</button>
               <button className={style.uploadBtn}>Upload Documents</button>
             </div>
