@@ -7,11 +7,15 @@ import TestLogo from './assets/TestLogo.svg';
 import ReactSwitch from "react-switch";
 import { createContext,useState } from 'react';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import Home from './Pages/Home/home';
+
 export const TheamContext = createContext(null);
 
 function App() {
 
-
+{/*
   const [theme,setTheam] = useState("light");
 
   const toggleTheam = () => {
@@ -21,9 +25,9 @@ function App() {
   if(theme === "dark"){
     return (
       <TheamContext.Provider value={{theme, toggleTheam}}>
-        <div className="App" id={theme}>
+        <div className="App container" id={theme}>
 
-          {/* ---------------------- Navbar -----------------------------*/}
+          {/* ---------------------- Navbar -----------------------------*/}{/*
           <div className='navbar'>
             <div >
               <img src={TestLogo} alt="Logo" className='logo'/>
@@ -46,7 +50,7 @@ function App() {
             </div>
 
         {/* -------------------------------------------------------*/}  
-
+{/*
           </div>
           <Outlet/>
         </div>
@@ -57,7 +61,7 @@ function App() {
       <TheamContext.Provider value={{theme, toggleTheam}}>
         <div className="App" id={theme}>
 
-          {/* ---------------------- Navbar -----------------------------*/}
+          {/* ---------------------- Navbar -----------------------------*/}{/*
           <div className='navbar'>
             <div className='withswitch'>
               <img src={TestLogo} alt="Logo" className='logo'/>
@@ -78,14 +82,19 @@ function App() {
               <Navbar route="LogOut" theme="light"/>
             </div>
 
-        {/* -------------------------------------------------------*/}  
+        {/* -------------------------------------------------------*/}  {/*
 
           </div>
           <Outlet/>
         </div>
       </TheamContext.Provider>
+
+    );*/}
+
+    return(
+      <Home/>
     );
   }
-}
+
 
 export default App

@@ -15,5 +15,6 @@
     margin: 0;
   }
   .chart{
-    height: 240px;
+   padding: 20px;
+   width: 20px;
   }
