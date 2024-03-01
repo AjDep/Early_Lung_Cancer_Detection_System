@@ -5,7 +5,7 @@ import './index.css'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Analysis from './Pages/Analysis/analysis.jsx';
-import Dashboard from './Pages/Dashboard/dashboard.jsx';
+import Dashboard from './Pages/Dashboard/dashnoard.jsx';
 
 const router = createBrowserRouter([
   {
