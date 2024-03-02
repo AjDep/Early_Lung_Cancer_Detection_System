@@ -1,0 +1,201 @@
+.contaner{
+  display:grid;
+  grid-template-columns: 1fr 15fr;
+}
+
+.content{
+  background: #ddd3f9;
+  padding-left: 5px;
+  margin-top: 15px;
+  height: 91vh;
+  border-radius: 50px 0px 0px 50px;
+  box-shadow: 0px 3px 5px 0px rgb(0, 0, 0);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  
+}
+
+h2{
+  font-size: 25px;
+  padding-left: 60px;
+  margin-bottom: 30px;
+  margin-top: 50px;
+  font-weight: normal;
+}
+
+
+/*.searchBar {
+  display: flex;
+  align-items: center;
+  padding: 35px 160px 0px 100px;
+  width: 600px;
+  margin-bottom: 30px;
+
+}
+
+.searchBar input {
+  padding: 1px;
+  flex: 1;
+  margin-right: 10px;
+  border-radius: 20px;
+  font-size: 18px;
+  background-color:#f6f6f7;
+  border-color: #6309f5;
+}*/
+
+.measurementInputsOne input[name="weight"],
+ input[name="height"], input[name="Co2"]{
+  color: black;
+  padding: 10px 30px 10px 30px;
+  font-size: 18px;
+  border-radius: 20px 20px 50px 20px;
+  width: 400px;
+  margin-left: 60px;
+  margin-bottom: 30px;
+  background-color:white;
+  border-color: #070707;
+}
+
+
+
+.measurementInputsTwo select[name="bloodType"],
+.measurementInputsTwo select[name="smokingStatus"] {
+  padding: 10px 0px 10px 30px ;
+  flex: 1;
+  border-radius: 7px 7px 30px 7px;
+  font-size: 18px;
+  margin-bottom: 30px;
+  background-color:white;
+  color: black;
+  border-color: black;
+  border-width: 2px;
+  border-color: #040404;
+  width: 550px;
+  margin-left: 60px;
+}
+
+
+
+
+
+
+.submit{
+  margin-top: 30px;
+  margin-left: 60px;
+}
+
+.submit button{
+  background-color:#8240EE;
+  border-color: #8240EE;
+}
+
+.submitBtn{
+  font-size: 18px;
+  border-radius: 5px;
+  padding: 8px 18px;
+  color: rgb(247, 246, 248);
+  transition: background-color 0.3s, color 0.3s; /* Add transition effect */
+}
+
+.submitBtn:hover {
+  background-color: #6a2aff6f; /* Change background color on hover */
+  color: rgb(6, 6, 6); /* Change text color on hover */
+}
+
+.bottomButtons{
+  padding: 20px 40px 40px 60px;
+  
+}
+
+.bottomButtons button{
+  background-color: #8240EE;
+  border-color: #8240EE;
+}
+
+.downloadBtn,.uploadBtn{
+  margin-right: 50px;
+  margin-top: 30px;
+  font-size: 18px;
+  border-radius: 10px;
+  padding: 10px 20px 10px 20px;
+  color: rgb(246, 242, 251);
+  transition: background-color 0.3s, color 0.3s; /* Add transition effect */
+}
+
+.downloadBtn:hover,
+.uploadBtn:hover {
+  background-color: #6a2affa5; /* Change background color on hover */
+  color: rgb(4, 4, 4); /* Change text color on hover */
+}
+
+.secondColumn{
+  background-color: white;
+  height: 91vh;
+}
+
+.wordLine1 p{
+  font-size: 35px;
+  font-weight: bolder;
+  letter-spacing: 10px;
+  padding-left: 30px;
+  color: rgb(10, 10, 10);
+}
+
+.wordLine2{
+  font-size: 25px;
+  padding-left: 30px;
+  margin-top: 2px;
+  color: rgb(1, 1, 1);
+}
+
+.boxesContainer {
+  display: flex;
+  padding-left: 100px;
+}
+
+.boxes{
+  background-color: rgba(119, 44, 242, 0.28);
+  width: 100px;
+  height: 100px;
+  border-radius: 20px 20px 40px 20px;
+  margin-left: 20px;
+  box-shadow: 5px -1px 0px #782eee; /* Add box shadow */
+  margin-right: 20px; /* Increase the margin */
+  margin-top: 2px;
+  padding: 10px 4px 0px 4px;
+}
+
+
+
+.line1{
+  font-size: 30PX;
+  text-align: center;
+  margin: 0;
+}
+
+.line2{
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 0px;
+  padding: 0px 0px 0px 15px;
+}
+
+.line1,.line2{
+  color: rgb(43, 41, 41);
+}
+
+.girl{
+  width: 260px;
+  height:46vh;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 380px; /* Adjust the top position as needed */
+  right: 0px; /* Position the image on the right side */
+  border-bottom-right-radius: 48px;
+  overflow: hidden;
+  padding: 25px; /* Reduce the padding to avoid overlap */
+
+}

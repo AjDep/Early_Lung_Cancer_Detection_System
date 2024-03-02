@@ -1,4 +1,5 @@
 
+
 import './App.css';
 import { Outlet } from 'react-router-dom';
 import Navbar from './components/Navbar/navbar';
@@ -86,6 +87,7 @@ function App() {
       </TheamContext.Provider>
     );
   }
+
 }
 
 export default App
