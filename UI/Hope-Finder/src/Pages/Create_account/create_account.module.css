@@ -1,0 +1,270 @@
+.page {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr;
+  /* First column is twice as wide as the second */
+  background-color: #9069ff;
+}
+
+.container {
+  height: 100vh; /* Full height */
+}
+
+.first {
+  background-color: white;
+  width: 750px;
+}
+
+.form {
+  /* Add your form styles here */
+}
+
+.create h1 {
+  color: black;
+  padding-left: 180px;
+  font-size: 50px;
+  font-weight: bold;
+  letter-spacing: 10px;
+  
+}
+
+.create h2 {
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  padding-left: 300px;
+  margin-bottom: 0px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="confirmPassword"] {
+  font-size: 20px;
+  width: 480px;
+  height: 50px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  padding-left: 20px;
+  border-radius: 20px;
+  border-color: #9069ff;
+  background-color: rgba(247, 244, 250, 0.727);
+  margin-left: 35px;
+}
+
+input[type="password"],
+input[type="confirmPassword"] {
+  margin-left: 203px;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.input {
+  padding-left: 170px;
+}
+
+input[type="submit"] {
+  margin-top: 30px;
+  margin-left: 40px;
+  cursor: pointer;
+  font-size: 15px;
+  background: rgba(91, 17, 209, 0.6);
+  border: 1px solid #680f957f;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  width: 380px;
+  height: 50px;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+input[type="submit"]:hover {
+  background: #705aee;
+}
+
+.button {
+  display: flex;
+  padding-left: 230px;
+}
+
+.agreement {
+  margin-top: 20px;
+}
+
+.checkbox {
+  margin-left: 239px;
+  margin-right: 10px;
+  transform: scale(1.5); /* Increase the size of the checkbox */
+}
+
+.socialLogin {
+  padding-left: 230px;
+}
+
+.googleLogin button {
+  margin-top: 15px;
+  margin-left: 40px;
+  cursor: pointer;
+  font-size: 15px;
+  background: rgba(251, 249, 255, 0.118);
+  border: 1px solid #f4f1f607;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 10px;
+  width: 380px;
+  height: 50px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+
+
+
+.googleLogin strong {
+  font-weight: 900;
+}
+
+.googleLogin button:hover {
+  background-color: rgba(220, 217, 217, 0.385); /* Change background color on hover */
+  color: white; /* Change text color on hover */
+}
+
+.box1 {
+  width: 450px;
+  height: 600px;
+  background: #beaaff;
+  opacity: 1;
+  border-radius: 70px;
+  position: absolute;
+  overflow: hidden;
+  margin-left: 180px;
+  margin-top: 60px;
+  position: relative; /* Ensure relative positioning for absolute children */
+}
+
+.box2 {
+  width: 450px;
+  height: 610px; /* Half of the height of box2 */
+  background: #6b2cf2;
+  opacity: 1;
+  position: absolute;
+  border-radius: 70px;
+  overflow: hidden;
+  margin-left: 130px;
+  margin-top: 100px;
+}
+
+.innerBox {
+  width: 100%; /* Adjust the width as needed */
+  height: 40%; /* Adjust the height as needed */
+  background: white; /* Background color of the inner box */
+  opacity: 0.6; /* Adjust opacity as needed */
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+}
+
+.welcomeMessage {
+  color: solid black;
+  font-size: 48px; /* Adjust font size as needed */
+  font-weight: bold; /* Make the text bold */
+  /* Center the text horizontally */
+  padding-left: 7px;
+  letter-spacing: 10px;
+  font-style: italic;
+}
+.backText {
+  display: block; /* Display "Back" as block to position it below "Welcome" */
+  font-size: 48px; /* Adjust font size as needed */
+  padding-left: 180px;
+  letter-spacing: 10px;
+  font-style: italic;
+}
+
+.girl_with_laptop {
+  margin-top: 230px;
+  width: 320px;
+  height: 340px;
+  margin-left: 60px;
+}
+
+.bottomButtons {
+    
+  padding-left: 1110px;
+  width: 300px;
+  
+}
+
+
+
+
+.secondLine {
+  color: rgb(30, 36, 190); /* Change color of 'Privacy Policy' */
+  margin-left: 262px;
+}
+.and {
+  color: black;
+}
+.bold {
+  font-weight: bold;
+}
+
+.wordOr {
+    background-color: #000;
+   margin-left: 1000px;
+    margin-top: 30px;
+  }
+  
+
+  .rightOfLine {
+    position: relative;
+    left: 5px; /* Adjust the value as needed */
+  }
+  
+ 
+  
+  .box3 {
+    width: 229px;
+    height: 4px;
+    background: rgba(217, 217, 217, 0.489);
+    opacity: 1;
+    position: absolute;
+    top: 540px;
+    left: 1237px;
+    overflow: hidden;
+  }
+
+  .or {
+    width: 40px;
+    color: rgba(0,0,0,1);
+    position: absolute;
+    top: 525px;
+    left: 369px;
+    font-family: Poppins;
+    font-weight: Light;
+    font-size: 18px;
+    opacity: 1;
+    text-align: left;
+    margin-left: 830px;
+  }
+  .box4 {
+    width: 229px;
+    height: 4px;
+    background:  rgba(217, 217, 217, 0.489);
+    opacity: 1;
+    position: absolute;
+    top: 542px;
+    left: 955px;
+    overflow: hidden;
+  }
+
+  .loginHover:hover {
+    
+    color: white;
+    cursor: pointer; /* Change cursor to pointer */
+  }

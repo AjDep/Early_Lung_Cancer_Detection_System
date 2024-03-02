@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300&family=Poppins:ital,wght@0,200;0,300;0,400;1,500&display=swap');
+
+body{
+    margin: 0;
+    font-family: 'poppins';
+    overflow-y: hidden;
+}
