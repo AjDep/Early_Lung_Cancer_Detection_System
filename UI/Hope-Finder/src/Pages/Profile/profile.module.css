@@ -57,16 +57,20 @@
     justify-content: center; /* Changed to center to align text in the middle */
     align-items: center; /* Centers the content vertically */
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 600;
     cursor: pointer;
-    border: 2px solid black; /* Example: 2px solid black border */
+    border: 2px solid rgba(119, 44, 242, 1); /* Example: 2px solid black border */
     border-radius: 10px; /* Adjust this value to control the roundness */
     padding: 5px 26px; /* Adjust vertical and horizontal padding as needed */
     background-color: rgba(119, 44, 242, 1);
+    box-shadow: 2px 2px 2px 2px;
+    
 }
 
 .submitContainer :hover{
-    color: rgba(119, 44, 242, 1);   
+    color: white;
+    background-color: rgb(67, 25, 135);
+    box-shadow: 2px 2px 2px 2px; 
 }
 
 .boxcontainer{
@@ -74,17 +78,19 @@
     justify-content: space-between;
     padding: 20px;
     font-size: 16px;
-    font-weight: semibold;
-    
-    
-    
+    font-weight: semibold;   
 }
+
 .box1 {
-    margin: 30px 30px; /* Adds a little space between the two boxes */
+    margin: 30px 100px; /* Adds a little space between the two boxes */
     padding: 5px 100px;
-    border: 2px solid rgba(249, 249, 249, 1); /* Gives a border to each box */
+    border: 2px solid rgba(107, 107, 107, 1); /* Gives a border to each box */
     border-radius: 20px;
     background-color: rgba(249, 249, 249, 1);  
+    box-shadow: 3px 5px 5px 3px rgba(107, 107, 107, 1);
+    height: 320px;
+    width: 300px;
+    
     
 }
   
@@ -92,9 +98,7 @@
     display: flex;
     align-items: center;
     margin-top: 10px;
-    padding: 5px 80px;
-    
-        
+    padding: 5px 80px;        
 }
 
 .box1 h2, .box1 p {
@@ -103,10 +107,12 @@
 
 .box2 {
     margin: 30px; /* Adds a little space between the two boxes */
-    padding: 5px 100px;
+    padding: 10px 100px;
     border: 2px solid rgba(249, 249, 249, 1); /* Gives a border to each box */
     border-radius: 20px;
     color: rgba(107, 107, 107, 1);
     background-color: rgba(217, 217, 217, 1);
-    margin-left: -60px;   
+    margin-left: -50px; 
+    width: 150px;  
+    
 }
