@@ -1,10 +1,18 @@
 
-#head_text{
+.head_text{
     color: rgb(0, 0, 0);
     font-weight: bold;
     font-size: 90px;
     padding-top: 100px;
 }
-#hero{
-    background-color: rgb(0, 0, 0);
-}
+.hero{
+    background-color: rgb(255, 255, 255);
+}.btn{
+    border:solid black;
+  }
+  .text{
+      color: black;
+  }
+  #navbars{
+      background-color: black;
+  }
