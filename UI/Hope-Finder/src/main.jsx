@@ -6,8 +6,6 @@ import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Analysis from './Pages/Analysis/analysis.jsx';
 
-
-
 const router = createBrowserRouter([
   {
     element:<App/>,
