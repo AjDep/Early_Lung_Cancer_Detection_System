@@ -3,7 +3,7 @@ import Bottem_card from './../../components/Analysis/bottem_card';
 import Pie_chart from './../../components/Analysis/pie_chart';
 import Navbar from './../../components/Navbar/navbar';
 import style from './anlysis.module.css';
-import lung from './../../assets/Lung 2.png';
+import lung from './../../assets/Lung 2.png'; 
 
 function Analysis(){
 
