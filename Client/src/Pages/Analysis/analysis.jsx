@@ -4,6 +4,7 @@ import Pie_chart from './../../components/Analysis/pie_chart';
 import Navbar from './../../components/Navbar/navbar';
 import style from './anlysis.module.css';
 import lung from './../../assets/Lung 2.png'
+import { NotesComponent } from '../../App';
 
 function Analysis(){
 
@@ -24,7 +25,7 @@ function Analysis(){
           <Pie_chart/>
           <img src={lung} alt=""  className={style.lung}/>
         </div>
-
+        <NotesComponent />
         <div className={style.bottem_container}>
           <div className={style.bottem_left}>
             {
