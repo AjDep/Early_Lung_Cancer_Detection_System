@@ -2,8 +2,12 @@ import s from "./bottem_card.module.css"
 function Bottem_card(props){
     return(
         <div className={s.bottem_card}>
-            <p>{props.Details}</p>
-            <h1>{props.value}</h1>
+            <div>
+                <p>{props.Details}</p>
+            </div>
+            <div>
+                <h1>{props.value}</h1>
+            </div>
         </div>
     );
 }
