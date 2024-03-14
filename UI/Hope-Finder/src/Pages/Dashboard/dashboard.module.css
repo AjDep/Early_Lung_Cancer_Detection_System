@@ -1,0 +1,33 @@
+.contaner{
+    display: grid;
+    grid-template-columns: 1fr 15fr;
+}
+
+.content{
+    background-color: rgba(249, 245, 245, 0.969);
+    padding-left: 10px;
+    margin-top: 15px;
+    height: 91vh;
+    border-radius: 50px 0px 0px 50px;
+    box-shadow: 0px 3px 5px 0px rgb(0, 0, 0);
+}
+.container{
+    /* border: 1px solid rgb(255, 3, 3);*/
+    margin-top: 16px;
+    margin-left: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+}
+.bottem_left{
+    display: grid;
+    gap:30px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.calendar-card{
+    margin-top: 40px;
+}
+.chart{
+    width: 700px;
+    height: 300px;
+    margin-top: 29px;
+}
