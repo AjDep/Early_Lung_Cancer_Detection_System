@@ -18,6 +18,7 @@ function Analysis(){
     return(
    
     <div>
+      <Navbar/>
       <Header name="Analysis"/>
       <div className="content">
         <div className={style.top_container}>
