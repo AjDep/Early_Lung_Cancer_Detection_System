@@ -1,0 +1,319 @@
+.firstColumn {
+  background-color: white;
+  height: 100vh;
+  /* Add any other styles for the red column */
+}
+
+.secondColumn {
+  background-color: #9069ff;
+  color: white; /* Change text color to white */
+  /* Add any other styles for the black column */
+}
+
+.firstColumn h1 {
+  color: black;
+  padding-left: 290px;
+  font-size: 50px;
+  font-weight: bold;
+  letter-spacing: 10px;
+  padding-top: 40px;
+  padding-bottom: 10px;
+}
+
+.firstColumn p {
+  color: rgb(12, 12, 12);
+  font-size: 30px;
+  font-weight: bold;
+  padding-left: 120px;
+  margin-bottom: 0px;
+}
+
+#username {
+  margin-left: 130px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  color: rgba(72, 71, 71, 0.495);
+  font-size: 20px;
+  padding:  0px 0px 0px 30px;
+  border-color: black;
+  border-width: 1px;
+  border-radius: 20px;
+  height: 50px;
+  width: calc(100% - 290px);
+}
+
+#password {
+  margin-left: 130px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  color: rgba(72, 71, 71, 0.495);
+  font-size: 20px;
+  padding: 0px 0px 0px 30px;
+  border-color: black;
+  border-width: 1px;
+  border-radius: 20px;
+  height: 50px;
+  width: calc(100% - 290px);
+}
+
+.wordOr {
+  display: flex;
+  margin-left: 200px;
+  margin-top: 20px;
+  margin-right: 240px;
+}
+
+.button Button {
+  background-color: rgb(123, 58, 253);
+  border: none;
+  padding: 10px 60px;
+  margin-right: 40px;
+  margin-top: 30px;
+}
+
+.button Button:hover {
+  background-color: rgba(126, 12, 240, 0.467);
+  border-color: white; /* Change the hover border color */
+  color: black;
+}
+
+.loginbtn {
+  background-color: rgb(145, 92, 252);
+  color: black;
+  border: none;
+  width: 350px;
+  padding: 10px;
+  margin-right: 40px;
+  margin-top: 20px;
+}
+
+.loginbtn:hover {
+  background-color: rgb(145, 92, 252);
+  color: rgba(171, 169, 169, 0.477);
+}
+.box1 {
+  width: 450px;
+  height: 600px;
+  background: #beaaff;
+  opacity: 1;
+  border-radius: 70px;
+  position: absolute;
+  overflow: hidden;
+  margin-left: 210px;
+  margin-top: 60px;
+  position: relative;
+}
+
+.box2 {
+  width: 450px;
+  height: 610px; /* Half of the height of box2 */
+  background: #6b2cf2;
+  opacity: 1;
+  position: absolute;
+  border-radius: 70px;
+  overflow: hidden;
+  margin-left: 160px;
+  margin-top: 100px;
+}
+
+.innerBox {
+  width: 100%; /* Adjust the width as needed */
+  height: 40%; /* Adjust the height as needed */
+  background: rgba(
+    254,
+    253,
+    255,
+    0.655
+  ); /* Background color of the inner box */
+  opacity: 0.6; /* Adjust opacity as needed */
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+}
+
+.welcomeMessage {
+  color: black;
+  font-size: 48px; /* Adjust font size as needed */
+  font-weight: bold; /* Make the text bold */
+  /* Center the text horizontally */
+  padding-left: 7px;
+  letter-spacing: 10px;
+  font-style: italic;
+  margin-top: 60px;
+}
+
+.backText {
+  display: block; /* Display "Back" as block to position it below "Welcome" */
+  font-size: 48px; /* Adjust font size as needed */
+  padding-left: 180px;
+  letter-spacing: 10px;
+  font-style: italic;
+  color: black;
+}
+
+.girl_with_laptop {
+  margin-top: 230px;
+  width: 320px;
+  height: 340px;
+  margin-left: 60px;
+}
+
+.forgot p {
+  font-size: 17px;
+  padding-left: 130px;
+  padding-top: 10px;
+  color: #5740de;
+  cursor: pointer;
+}
+
+.mem p {
+  margin-left: 120px;
+  margin-top: 20px;
+  color: black;
+  font-size: 16px;
+}
+
+.create {
+  color: rgb(93, 14, 198);
+}
+
+.create:hover {
+  color: rgb(141, 70, 218); /* Change the color to red on hover */
+  cursor: pointer; /* Show pointer cursor on hover */
+}
+
+@media (max-width: 1200px) {
+  .firstColumn {
+    height: auto;
+  }
+
+  .firstColumn h1 {
+    padding-left: 20px;
+    font-size: 30px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
+
+  .firstColumn p {
+    font-size: 20px;
+    padding-left: 20px;
+  }
+
+  #username,
+  #password {
+    margin-left: 20px;
+    width: calc(100% - 40px);
+  }
+
+  .wordOr {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .button Button,
+  .loginbtn {
+    width: calc(100% - 40px);
+    margin-right: 0;
+    margin-top: 20px;
+  }
+
+  .box1
+  {
+   width: 38vh;
+    margin-left: 10px;
+  }
+
+  .box2{
+    width: 38vh;
+    margin-left: 40px
+  }
+
+  .girl_with_laptop {
+    margin-top: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  .forgot p {
+    padding-left: 20px;
+    padding-top: 5px;
+  }
+
+  .mem {
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+
+  .welcomeMessage {
+    font-size: 30px;
+    margin-top: 80px;
+    margin-left: 60px;
+  }
+
+  .backText {
+    font-size: 30px;
+    margin-right: 60px;
+  }
+}
+
+.firstColumn h6 {
+  margin-left: 300px;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+/* Apply custom styles if needed */
+.userTypeOptions {
+  margin-top: 10px;
+  margin-left: 200px; /* Example custom style */
+}
+
+.customRadio {
+  margin-left: 340px;
+  margin-right: 20px;
+  margin-top: 10px;
+  font-size: 17px;
+}
+
+.customRadio [type="radio"] {
+  border-color: black;
+}
+/* Media query for adjusting styles at specific breakpoints */
+@media (max-width: 1200px) {
+  /* Adjust styles for smaller screens */
+  .userTypeOptions {
+    margin-top: 20px; /* Example custom style adjustment for smaller screens */
+  }
+
+  .userTypeOptions {
+    margin-top: 10px;
+    margin-left: 20px; /* Example custom style */
+  }
+
+  .firstColumn h6 {
+    margin-left: 90px;
+    margin-top: 10px;
+    font-size: 18px;
+  }
+
+  .customRadio {
+    margin-left: 150px;
+    margin-right: 20px;
+    margin-top: 10px;
+    font-size: 17px;
+  }
+
+
+  .mem p{
+    font-size: 15px;
+    margin-right: 20px;
+    margin-left: 30px;
+    margin-top: 2px;
+    margin-bottom: 10px;
+  }
+  
+}
