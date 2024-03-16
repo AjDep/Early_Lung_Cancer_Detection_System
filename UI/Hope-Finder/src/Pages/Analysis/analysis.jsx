@@ -1,4 +1,4 @@
-import Header from './../../components/header/header';
+
 import Bottem_card from './../../components/Analysis/bottem_card';
 import Pie_chart from './../../components/Analysis/pie_chart';
 import Navbar from './../../components/Navbar/navbar';

@@ -1,0 +1,290 @@
+.contaner {
+  display: grid;
+  grid-template-columns: 1fr 15fr;
+}
+
+.content {
+  background-color: white;
+  padding-left: 5px;
+  margin-top: 15px;
+  height: 91vh;
+  border-radius: 50px 0px 0px 50px;
+  box-shadow: 0px 3px 5px 0px rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+}
+
+@media only screen and (min-width: 768px) {
+  .content {
+    flex-direction: row; /* Align columns side by side on medium and large screens */
+    justify-content: space-between; /* Add space between child elements */
+  }
+}
+
+.form {
+  width: 100%;
+  max-width: 600px;
+  flex: 1;
+}
+
+form p {
+  font-size: 22px;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+.formGroup input {
+  width: 400px;
+  margin-left: 30px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  color: rgba(72, 71, 71, 0.495);
+  font-size: 20px;
+  padding: 20px;
+}
+
+.formGroup input,
+.formGroup [name="bloodType"],
+.formGroup [name="smokingStatus"] {
+  border-color: black;
+  border-width: 1px;
+  border-radius: 20px;
+  height: 50px;
+  width: calc(100% - 80px);
+}
+
+.formGroup select[name="bloodType"],
+.formGroup select[name="smokingStatus"] {
+  color: rgba(55, 54, 54, 0.684);
+  font-size: 20px;
+}
+
+.boxes {
+  background-color: #f8f3ff;
+  box-shadow: 1px -1px 0px #acacac, -1px -1px 0px #acacac;
+  flex: 2;
+}
+
+.row1,
+.row2 {
+  display: flex;
+  justify-content: space-around;
+}
+
+.box1,
+.box2,
+.box3,
+.box4 {
+  background-color: #6a2affd3;
+  margin-top: 10px;
+  width: 120px;
+  height: 120px;
+  border-radius: 30px;
+  margin-bottom: 30px;
+  box-shadow: 5px -1px 0px #782eee;
+}
+
+.box5 {
+  margin-left: 125px;
+  width: 120px;
+  height: 120px;
+  background-color: #6a2affd3;
+  margin-top: 10px;
+  border-radius: 30px;
+  box-shadow: 5px -1px 0px #782eee;
+}
+
+.boxes:hover {
+  background-color: white;
+}
+
+.box1 h1 {
+  font-size: 35px;
+  margin-left: 20px;
+  margin-top: 5px;
+  font-weight: bold;
+  color: white;
+  padding-top: 20px;
+}
+
+.box1 p {
+  font-size: 17px;
+  color: white;
+  margin-left: 30px;
+}
+
+.box2 h1 {
+  font-size: 30px;
+  margin-left: 15px;
+  margin-top: 25px;
+  font-weight: bold;
+  color: white;
+}
+
+.box2 p {
+  font-size: 17px;
+  color: white;
+  margin-left: 35px;
+}
+
+.box3 h1 {
+  font-size: 35px;
+  margin-left: 25px;
+  margin-top: 22px;
+  font-weight: bold;
+  color: white;
+}
+
+.box3 p {
+  font-size: 17px;
+  color: white;
+  margin-left: 18px;
+  margin-top: 15px;
+}
+
+.box4 h1 {
+  color: white;
+  font-size: 50px;
+  margin-left: 30px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.box4 p {
+  color: white;
+  font-size: 17px;
+  margin-left: 15px;
+}
+
+.box5 h1 {
+  font-size: 25px;
+  margin-left: 15px;
+  padding-top: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+.box5 p {
+  font-size: 17px;
+  color: white;
+  margin-left: 25px;
+  margin-top: 7px;
+}
+
+.buttons [id="submit"] {
+  margin-left: 30px;
+  margin-top: 14px;
+  background-color: rgba(55, 10, 94, 0.971);
+}
+
+.buttons [id="download"] {
+  margin-left: 30px;
+  background-color: rgba(55, 10, 94, 0.971);
+}
+
+.buttons [id="submit"]:hover,
+.buttons [id="download"]:hover {
+  background-color: rgb(101, 101, 101);
+  border-color: none;
+}
+
+.text h2 {
+  margin-top: 30px;
+  font-weight: bold;
+  margin-left: 60px;
+}
+
+.text p {
+  margin-top: 20px;
+  font-size: 20px;
+  margin-left: 27px;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+  color: rgb(81, 79, 79);
+}
+
+.text li {
+  margin-bottom: 30px;
+  font-size: 20px;
+}
+
+.formGroup select {
+  width: 600px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  height: 50px;
+  margin-left: 30px;
+  border-radius: 20px;
+  border-color: rgb(83, 16, 147);
+}
+
+.image {
+  margin-top: 100px;
+  margin-right: 60px;
+}
+
+@media only screen and (max-width: 767px) {
+  .boxes {
+    flex: 2;
+  }
+
+  .formGroup input::placeholder,
+  .formGroup select[name="bloodType"],
+  .formGroup select[name="smokingStatus"] {
+    font-size: 14px; /* Adjust the font size of placeholders */
+  }
+
+  .row1,
+  .row2 {
+    flex-wrap: wrap; /* Allow boxes to wrap onto multiple lines */
+  }
+
+  .box1,
+  .box2,
+  .box3,
+  .box4 {
+    width: 110px; /* Make each box take up full width */
+    max-width: 120px; /* Limit maximum width of each box */
+    height: 110px; /* Adjust height of each box */
+    margin-left: 20px;
+    margin-right: 30px;
+  }
+
+  form p,
+  .text h2,
+  .text p,
+  .text li,
+  .buttons,
+  .buttons [id="submit"],
+  .buttons [id="download"] {
+    font-size: 14px; /* Adjust the font size of all text content */
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .formGroup input,
+  .formGroup select {
+    margin-bottom: 10px; /* Adjust the space between inputs */
+    margin-top: 10px;
+  }
+
+  .buttons [id="download"] {
+    margin-top: 10px; /* Add margin top to the download button */
+    margin-bottom: 40px;
+  }
+
+  .boxes {
+    margin-top: 20px;
+  }
+
+  .box5 {
+    margin-left: 20px; /* Change margin left of the fifth box */
+    width: 110px; /* Make each box take up full width */
+    max-width: 120px; /* Limit maximum width of each box */
+    height: 110px; /* Adjust height of each box */
+  }
+}
