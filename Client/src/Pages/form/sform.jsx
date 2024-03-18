@@ -1,121 +1,39 @@
-import React, { Component } from 'react';
-
-class SForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      notes: [],
-      patient_id: "",
-      name: "",
-      address_no: "",
-      lane: "",
-      city: "",
-      district: "",
-      country: "",
-      contact_number: "",
-      profile_picture: "",
-      birth_year: "",
-      birth_month: "",
-      birth_date: "",
-      gender: "Male",
-      age: "",
-      appointment_id: "",
-      doctor_id: ""
-    };
+import React from 'react'
+import {useState} from 'react'
+import {Link} from "react-router-dom"
+import axios from 'axios'
+function sform() {
+  const [name,setName]=useState()
+  const [age,setAge]=useState()
+  const [school,setSchool]=useState()
+  
+  const handleSubmit =(e)=>{
+    e.preventDefault()
+    axios.post('http://localhost:3001/api/Customer/AddNotes',{name,age,school})
+    .then(result=>console.log(result))
+    .catch(err=>console.log(err))
   }
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input 
+        placeholder='Name'
+        onChange={(e)=>setName(e.target.value)}
+        ></input> <br></br>
 
-  API_URL = "http://localhost:5038/";
+        <input 
+        placeholder='Age'
+        onChange={(e)=>setAge(e.target.value)}
+        ></input>  <br></br>
 
-  componentDidMount() {
-    this.refreshNotes();
-  }
+        <input 
+        placeholder='School'
+        onChange={(e)=>setSchool(e.target.value)}>
+        </input><br></br> 
 
-  async refreshNotes() {
-    fetch(this.API_URL + "api/Customers/GetNotes")
-      .then(response => response.json())
-      .then(data => {
-        this.setState({ notes: data });
-      });
-  }
-
-  async addClick(event) {
-    event.preventDefault(); // Prevent default form submission
-    const {
-      patient_id,name,
-      address_no,
-      lane,
-      city,
-      district,
-      country,
-      contact_number,
-      profile_picture,
-      birth_year,
-      birth_month,
-      birth_date,
-      gender,
-      age,
-      appointment_id,
-      doctor_id
-    } = this.state;
-
-    const data = {
-      patient_id,
-      name,
-      address: {
-        no: address_no,
-        lane,
-        city,
-        district,
-        country
-      },
-      contact_number,
-      profile_picture,
-      birthday: {
-        year: birth_year,
-        month: birth_month,
-        date: birth_date
-      },
-      gender,
-      age,
-      appointment_id,
-      doctor_id
-    };
-
-    fetch(this.API_URL +"api/Customer/AddNotes", {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
-      .then(res => res.json())
-      .then(result => {
-        alert(result);
-        this.refreshNotes();
-      });
-  }
-
-  handleChange(event) {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
-  }
-
-  render() {
-    return (
-      <div>
-        <h1>The app</h1>
-        <form onSubmit={(event) => this.addClick(event)}>
-          <label htmlFor="patient_id">Patient ID:</label><br />
-          <input type="number" id="patient_id" name="patient_id" value={this.state.patient_id} onChange={(event) => this.handleChange(event)} required /><br /><br />
-
-          {/* Add other input fields here, similar to the above example */}
-
-          <input type="submit" value="Submit" />
-        </form>
-      
-      </div>
-    );
-  }
+        <button type='Submit'>SUbmit</button>
+      </form>
+    </div>
+  )
 }
-
-export default SForm;
+export default sform;
