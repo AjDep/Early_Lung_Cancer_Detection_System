@@ -1,93 +1,52 @@
-
-
 import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import Navbar from './components/Navbar/navbar';
 import Header from './components/header/header';
 import TestLogo from './assets/TestLogo.svg';
 import ReactSwitch from "react-switch";
-import { createContext,useState } from 'react';
+import { createContext, useState } from 'react';
+import Form from './Pages/form/sform';
 
-export const TheamContext = createContext(null);
+export const ThemeContext = createContext(null);
 
 function App() {
+  const [theme, setTheme] = useState("light");
 
-
-  const [theme,setTheam] = useState("light");
-
-  const toggleTheam = () => {
-    setTheam((curr) => (curr === "light" ? "dark" : "light"));
+  const toggleTheme = () => {
+    setTheme((currentTheme) => (currentTheme === "light" ? "dark" : "light"));
   }
  
-  if(theme === "dark"){
-    return (
-      <TheamContext.Provider value={{theme, toggleTheam}}>
-        <div className="App" id={theme}>
-
-          {/* ---------------------- Navbar -----------------------------*/}
-          <div className='navbar'>
-            <div >
-              <img src={TestLogo} alt="Logo" className='logo'/>
-                <div children='divcenter'>
-                <ReactSwitch onChange={toggleTheam} checked={theme === "dark"}/>
-                </div>
+  return (
+    <ThemeContext.Provider value={{theme, toggleTheme}}>
+      <div className="App" id={theme}>
+        {/* ---------------------- Navbar -----------------------------*/}
+        <div className='navbar'>
+          <div>
+            <img src={TestLogo} alt="Logo" className='logo'/>
+            <div children='divcenter'>
+              <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />
             </div>
-           
-
-            <div className='mid'>
-              <Navbar route="Dashboard" theme="dark"/>
-              <Navbar route="Analysis" theme="dark"/>
-              <Navbar route="Health" theme="dark"/>
-            </div>
-
-            <div className='bottem'>
-              <Navbar route="History" theme="dark"/>
-              <Navbar route="Setting" theme="dark"/>
-              <Navbar route="LogOut" theme="dark"/>
-            </div>
-
-        {/* -------------------------------------------------------*/}  
-
           </div>
-          <Outlet/>
-        </div>
-      </TheamContext.Provider>
-    );
-  }else if(theme === "light"){
-    return (
-      <TheamContext.Provider value={{theme, toggleTheam}}>
-        <div className="App" id={theme}>
-
-          {/* ---------------------- Navbar -----------------------------*/}
-          <div className='navbar'>
-            <div className='withswitch'>
-              <img src={TestLogo} alt="Logo" className='logo'/>
-              <div children='divcenter'>
-                <ReactSwitch onChange={toggleTheam} checked={theme === "dark"}/>
-              </div>
-            </div>
-
-            <div className='mid'>
-              <Navbar route="Dashboard" theme="light"/>
-              <Navbar route="Analysis" theme="light"/>
-              <Navbar route="Health" theme="light"/>
-            </div>
-
-            <div className='bottem'>
-              <Navbar route="History" theme="light"/>
-              <Navbar route="Setting" theme="light"/>
-              <Navbar route="LogOut" theme="light"/>
-            </div>
-
-        {/* -------------------------------------------------------*/}  
-
+          
+          <div className='mid'>
+            <Navbar route="Dashboard" theme={theme}/>
+            <Navbar route="Analysis" theme={theme}/>
+            <Navbar route="Health" theme={theme}/>
           </div>
-          <Outlet/>
-        </div>
-      </TheamContext.Provider>
-    );
-  }
 
+          <div className='bottem'>
+            <Navbar route="History" theme={theme}/>
+            <Navbar route="Setting" theme={theme}/>
+            <Navbar route="LogOut" theme={theme}/>
+          </div>
+          {/* -------------------------------------------------------*/}  
+        </div>
+       
+        <Outlet/>
+      </div>
+    </ThemeContext.Provider>
+  );
 }
 
-export default App
+export default App;
