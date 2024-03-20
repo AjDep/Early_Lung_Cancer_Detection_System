@@ -1,103 +1,29 @@
+import "./App.css";
+import Header from "./components/header/header";
+import Navbar from "./components/Navbar/navbar";
+import Analysis from "./Pages/Analysis/analysis";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
-import './App.css';
-import { Outlet } from 'react-router-dom';
-import Navbar from './components/Navbar/navbar';
-import Header from './components/header/header';
-import TestLogo from './assets/TestLogo.svg';
-import ReactSwitch from "react-switch";
-import { createContext,useState } from 'react';
-import Analysis from './Pages/Analysis/analysis';
+function App() {
+  return (
+    <div className="App">
+      <Col>
+        <Navbar />
+      </Col>
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+      <Col>
+        <Row>
+          <Header name="Analysis" />
+        </Row>
 
-
-import Home from './Pages/Home/home';
-
-export const TheamContext = createContext(null);
-
-function App() {{/**
-
-  const [theme,setTheam] = useState("light");
-
-  const toggleTheam = () => {
-    setTheam((curr) => (curr === "light" ? "dark" : "light"));
-  }
- 
-  if(theme === "dark"){
-    return (
-      <TheamContext.Provider value={{theme, toggleTheam}}>
-        <div className="App container" id={theme}>
-
-          
-          <div className='navbar'>
-            <div >
-              <img src={TestLogo} alt="Logo" className='logo'/>
-                <div children='divcenter'>
-                <ReactSwitch onChange={toggleTheam} checked={theme === "dark"}/>
-                </div>
-            </div>
-           
-
-            <div className='mid'>
-              <Navbar route="Dashboard" theme="dark"/>
-              <Navbar route="Analysis" theme="dark"/>
-              <Navbar route="Health" theme="dark"/>
-            </div>
-
-            <div className='bottem'>
-              <Navbar route="History" theme="dark"/>
-              <Navbar route="Setting" theme="dark"/>
-              <Navbar route="LogOut" theme="dark"/>
-            </div>
-
-       
-
-          </div>
-          <Outlet/>
-        </div>
-      </TheamContext.Provider>
-    );
-  }else if(theme === "light"){
-    return (
-      <TheamContext.Provider value={{theme, toggleTheam}}>
-        <div className="App" id={theme}>
-
-          
-          <div className='navbar'>
-            <div className='withswitch'>
-              <img src={TestLogo} alt="Logo" className='logo'/>
-              <div children='divcenter'>
-                <ReactSwitch onChange={toggleTheam} checked={theme === "dark"}/>
-              </div>
-            </div>
-
-            <div className='mid'>
-              <Navbar route="Dashboard" theme="light"/>
-              <Navbar route="Analysis" theme="light"/>
-              <Navbar route="Health" theme="light"/>
-            </div>
-
-            <div className='bottem'>
-              <Navbar route="History" theme="light"/>
-              <Navbar route="Setting" theme="light"/>
-              <Navbar route="LogOut" theme="light"/>
-            </div>
-
-
-
-          </div>
-          <Outlet/>
-        </div>
-      </TheamContext.Provider>
-
-    );
-    }/*/}
-
-    return(
-      <div className='App'>
-        <Analysis/>
-      </div>
-    )
-  }
+        <Row>
+          <Analysis />
+        </Row>
+      </Col>
+    </div>
+  );
+}
 
 export default App;

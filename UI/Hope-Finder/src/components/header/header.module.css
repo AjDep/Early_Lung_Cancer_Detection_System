@@ -1,12 +1,12 @@
 .header h1{
     margin: 0;
-    padding-top: 5px;
+    padding-top: 10px;
     color: white;
-    font-size: 30px;
+    font-size: 40px;
   }
   .header{
     padding-left: 60px;
-    height: 6vh;
+    height: 10vh;
     display: grid;
     grid-template-columns: 15fr 1fr;
   }
