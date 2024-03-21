@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "./../../components/Header/header";
+import Header from "./../../components/header/header";
 import Navbar from "./../../components/Navbar/navbar";
 import style from "./health.module.css";
 import Girl from "./../../assets/Girl.png";
