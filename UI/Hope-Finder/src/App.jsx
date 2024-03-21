@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       
       
-      <Profile/>
+      <Settings/>
     </div>
       
   );

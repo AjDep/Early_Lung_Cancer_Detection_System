@@ -68,7 +68,7 @@ function Settings(){
                   className={style.bioTextarea}/>
                   <div className={style.emptyBox4}></div> {/* Empty box added here */}
             </div>
-              
+
             </div>
 
             <div className={style.email}>
@@ -86,10 +86,12 @@ function Settings(){
           </div>
         </div>
       </div>
-    
+
 
 
     );
 }
 
 export default Settings;
+
+

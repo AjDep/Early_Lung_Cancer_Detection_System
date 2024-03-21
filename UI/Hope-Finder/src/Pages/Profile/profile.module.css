@@ -1,9 +1,9 @@
-.contaner{
+.contaner {
     display: grid;
     grid-template-columns: 1fr 15fr;
 }
 
-.content{
+.content {
     background-color: rgba(255, 255, 255, 0.969);
     padding-left: 5px;
     margin-top: 15px;
@@ -12,38 +12,38 @@
     box-shadow: 0px 3px 5px 0px rgb(0, 0, 0);
 }
 
-.image{
+.image {
     margin-top: 20px;
     margin-left: 10px;
     width: 1450px;
     height: 220px;
 }
 
-.Profile_img{
+.Profile_img {
     width: 140px;
     height: 140px;
     margin-top: -15px;
     margin-left: 30px;
 }
 
-.profileHead{
+.profileHead {
     margin-left: 220px;
-    font-family: Poppins, sans-serif;    
+    font-family: Poppins, sans-serif;
 }
 
-.profileHead h4{
+.profileHead h4 {
     font-size: 30px;
     font-weight: 400;
     margin-top: -105px;
 }
 
-.profileHead h5{
+.profileHead h5 {
     font-size: 20px;
     font-weight: 200;
     margin-top: -45px;
 }
 
-.submitContainer{
+.submitContainer {
     display: flex;
     gap: 50px;
     justify-content: right;
@@ -52,67 +52,67 @@
     color: black;
 }
 
-.submit{
+.submit {
     display: flex;
-    justify-content: center; /* Changed to center to align text in the middle */
-    align-items: center; /* Centers the content vertically */
+    justify-content: center;
+    align-items: center;
     font-size: 18px;
     font-weight: 600;
     cursor: pointer;
-    border: 2px solid rgba(119, 44, 242, 1); /* Example: 2px solid black border */
-    border-radius: 10px; /* Adjust this value to control the roundness */
-    padding: 5px 26px; /* Adjust vertical and horizontal padding as needed */
+    border: 2px solid rgba(119, 44, 242, 1);
+    border-radius: 10px;
+    padding: 5px 26px;
     background-color: rgba(119, 44, 242, 1);
     box-shadow: 2px 2px 2px 2px;
-    
+
 }
 
-.submitContainer :hover{
+.submitContainer :hover {
     color: white;
     background-color: rgb(67, 25, 135);
-    box-shadow: 2px 2px 2px 2px; 
+    box-shadow: 2px 2px 2px 2px;
 }
 
-.boxcontainer{
+.boxcontainer {
     display: flex;
     justify-content: space-between;
     padding: 20px;
     font-size: 16px;
-    font-weight: semibold;   
+    font-weight: semibold;
 }
 
 .box1 {
-    margin: 30px 100px; /* Adds a little space between the two boxes */
+    margin: 30px 100px;
     padding: 5px 100px;
-    border: 2px solid rgba(107, 107, 107, 1); /* Gives a border to each box */
+    border: 2px solid rgba(107, 107, 107, 1);
     border-radius: 20px;
-    background-color: rgba(249, 249, 249, 1);  
+    background-color: rgba(249, 249, 249, 1);
     box-shadow: 3px 5px 5px 3px rgba(107, 107, 107, 1);
     height: 320px;
     width: 300px;
-    
-    
 }
-  
+
 .contactBox {
     display: flex;
     align-items: center;
     margin-top: 10px;
-    padding: 5px 80px;        
+    padding: 5px 80px;
 }
 
-.box1 h2, .box1 p {
-    margin-left: -60px; /* Adds margin to the left of <h2> and <p> */
+.box1 h2,
+.box1 p {
+    margin-left: -60px;
 }
 
 .box2 {
-    margin: 30px; /* Adds a little space between the two boxes */
+    margin: 30px;
     padding: 10px 100px;
-    border: 2px solid rgba(249, 249, 249, 1); /* Gives a border to each box */
+    border: 2px solid rgba(249, 249, 249, 1);
     border-radius: 20px;
     color: rgba(107, 107, 107, 1);
     background-color: rgba(217, 217, 217, 1);
-    margin-left: -50px; 
-    width: 150px;  
-    
+    margin-left: -50px;
+    width: 150px;
+
 }
+
