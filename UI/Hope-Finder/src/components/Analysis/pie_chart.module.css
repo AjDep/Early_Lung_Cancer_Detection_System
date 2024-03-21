@@ -1,0 +1,23 @@
+.top_card{
+    display: grid;
+    grid-template-rows: 1fr 5fr;
+    margin-top: 20px;
+    text-align: left;
+    border: 1px solid rgb(255, 255, 255);
+    height: 240px;
+    width: 260px;
+    border-radius: 30px;
+    box-shadow: 0px 1px 5px 0px rgb(102, 100, 100);
+    background-color: rgb(255, 255, 255);
+    align-items: center;  
+  }
+  .top_card p,h1{
+    margin: 0;
+  }
+  .chart{
+   padding: 20px;
+   width: 20px;
+  }
+  #text{
+    font-weight: bold;
+  }
