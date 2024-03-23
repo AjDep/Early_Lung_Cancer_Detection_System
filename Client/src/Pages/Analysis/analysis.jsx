@@ -157,9 +157,8 @@ function Analysis() {
 
   return (
     <div>
-      <Row>
-        <Header name="Analysis" />
-      </Row>
+      <Header name="Analysis" />
+
       <Row className="content">
         <Col>
           <Row>
