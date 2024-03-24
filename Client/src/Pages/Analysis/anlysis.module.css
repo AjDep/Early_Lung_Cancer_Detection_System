@@ -5,18 +5,19 @@
     display: grid;
     grid-template-columns: 1fr 1fr ;
 }
-
-.bottem{
-    margin-top: 10px;
+.bottem_container{
+    /* border: 1px solid rgb(255, 3, 3);*/
+    margin-top: 16px;
     margin-left: 30px;
     display: grid;
-    gap: 40px;
+    grid-template-columns: 1fr 1fr ;
+}
+.bottem_left{
+    display: grid;
+    gap:30px;
     grid-template-columns: 1fr 1fr 1fr ;
 }
 .lung{
     height: 300px;
     margin-left: 200px;
-}
-.detail{
-    margin-top: 30px;
 }
