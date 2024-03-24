@@ -1,0 +1,300 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.leftColumn {
+    flex: 1;
+    background-color: white; /* Adjust as needed */
+    width: 100%;
+    page-break-inside: avoid;
+    order: 2;
+}
+
+.rightColumn {
+    flex: 1;
+    background-color: #9069ff; /* Adjust as needed */
+    width: 100%;
+}
+
+.rightColumn h1{
+    font-size: 45px;
+    font-weight: bolder;
+    margin-left: 220px;
+    margin-top: 40px;
+}
+
+.rightColumn p{
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 270px;
+    margin-top: 20px;
+}
+
+.formGroup input{
+    width: 400px;
+    margin-left: 30px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: rgba(72, 71, 71, 0.495);
+    font-size: 20px;
+    padding: 20px;
+ }
+ 
+.formGroup input{
+    border-color: black;
+    border-width: 1px;
+    border-radius: 20px;
+    height: 50px;
+    width: calc(100% - 290px);
+    margin-left: 150px;
+    margin-top: 20px;
+}
+
+.check{
+ 
+    margin-left: 230px;
+    margin-top: 30px;
+    gap: 10px;
+  }
+
+  .check input[ type="checkbox"]{
+   border-color: black;
+  }
+
+  .wordOr {
+    display: flex;
+    margin-left: 5px;
+    margin-top: 20px;
+    margin-right: 240px;
+    
+  }
+
+  .blackText,.and {
+    color: black; /* Set the color to black for the first part */
+    margin-left: 10px;
+}
+  
+  .blueText {
+    color: rgb(26, 26, 225); /* Set the color to blue for the second part */
+    margin-left: 10px;
+}
+
+.button Button {
+    border-color: rgba(91, 17, 209, 0.6); /* Change the border color to match */
+    color: white; /* Change the text color to contrast with the background */
+    margin-top: 30px;
+    padding: 10px 20px;
+    font-weight: bold;
+    width: 320px;
+    margin-right: 220px;
+    background-color: rgb(107, 43, 226);
+  }
+  
+  .button Button:hover {
+    background-color: #705aee; /* Change the hover background color */
+    border-color: rgb(114, 52, 201); /* Change the hover border color */
+    color: rgb(0, 0, 0);
+  }
+
+  .googleLogin Button{
+background-color: rgba(235, 233, 237, 0.736) ;
+margin-right: 230px;
+margin-top: 20px;
+height: 45px;
+padding: 0px 20px 0px 20px ;
+border:none;
+margin-bottom: 20px;
+  }
+
+  .login{
+    color: black;
+  }
+
+  .login:hover {
+    color: rgb(250, 250, 250); /* Change the color to red on hover */
+    cursor: pointer; /* Show pointer cursor on hover */
+  }
+  
+  .mem{
+    margin-left:80px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+
+  .box1 {
+    width: 450px;
+    height: 600px;
+    background: #beaaff;
+    opacity: 1;
+    border-radius: 70px;
+    overflow: hidden;
+    margin-top: 70px;
+    margin-left: 140px;
+    margin-bottom: 60px;
+    position: relative; 
+  }
+  
+  .box2 {
+    
+    height: 600px; /* Half of the height of box2 */
+    background: #6b2cf2;
+    opacity: 1;
+    overflow: hidden;
+    position:absolute; 
+    border-radius: 70px;
+    overflow: hidden;
+    margin-left: 80px;
+    margin-top: 130px;
+  }
+
+  .innerBox {
+    width: 100%; /* Adjust the width as needed */
+    height: 40%; /* Adjust the height as needed */
+    background: rgba(254, 253, 255, 0.655); /* Background color of the inner box */
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+   
+  }
+
+  .innerBox p{
+    font-size: 30px;
+    margin: 50px 40px 40px 60px;
+  }
+
+  .innerBox strong{
+    color: rgb(142, 46, 221);
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  .girl_with_laptop{
+    margin-top: 220px;
+    width: 46vh;
+    height: 50vh;
+    margin-left: 60px;
+  }
+ 
+
+.check{
+
+}
+  
+@media screen and (max-width: 1200px) {
+
+  .rightColumn h1 {
+      margin-left: 4px;  
+      padding-right: 20px;
+  }
+
+  .innerBox p{
+    font-size: 20px;
+  }
+  .innerBox strong{
+    font-size: 25px
+  }
+
+  .rightColumn p {
+    
+      font-size: 25px;
+  }
+
+  .formGroup input {
+      width: 200px;
+  }
+
+  .formGroup input {
+      width: calc(100% - 90px);
+      margin-left: 60px;
+  }
+
+  .check {
+      margin-left: 100px;
+  }
+
+  .wordOr {
+      margin-right: 70px;
+  }
+
+  .button Button {
+    margin-right: 80px;
+    margin-left: 20px;
+
+  }
+
+  .googleLogin Button {
+      margin-right: 80px;
+      margin-left: 20px;
+  }
+
+  .box1 {
+      margin-left: 110px;
+      margin-bottom: 30px;
+      width: 200px;
+  }
+
+  .box2 {
+      margin-left: 70px;
+      margin-top: 100px;
+      width: 200px;
+  }
+
+  .girl_with_laptop {
+   
+      width: 250px;
+      height: 250px;
+      margin-top: 280px;
+      margin-left: 10px;
+  }
+
+  .check{
+    margin-right: 30px;
+  }
+
+  .rightColumn p{
+    margin-left: 70px;
+  }
+  
+  .rightColumn h1{
+    margin-left: 50px;
+    font-size:40px;
+  }
+
+  .mem{
+    margin-right: 10px;
+    margin-left: 8px;
+  }
+
+  .container {
+    flex-direction: column;
+}
+
+.leftColumn {
+    flex: none;
+    width: auto;
+    order: 2; /* Move the left column to the end */
+}
+
+.rightColumn {
+    width: 100%;
+    order: 1; /* Move the right column to the beginning */
+}
+}
+
+@media print {
+    .container {
+        flex-direction: row;
+    }
+
+    .leftColumn {
+        display: none;
+    }
+
+    .rightColumn {
+        width: 100%;
+    }
+}
