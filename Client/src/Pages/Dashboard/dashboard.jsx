@@ -86,8 +86,8 @@ function Dashboard() {
                             <div className='calendar-card'>
                                 <Calendar />
                             </div>
-                            <div>
-                                <div><h3>Upcoming Test and Appoinments</h3></div>
+                            <div className={style.appoinments}> 
+                                <div ><h5>Upcoming Test and Appoinments</h5></div>
                                 <List/>
                             </div>
                         </div>

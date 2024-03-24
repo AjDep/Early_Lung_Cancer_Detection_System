@@ -9,7 +9,8 @@ import Dashboard from './Pages/Dashboard/dashboard.jsx';
 import History from "./Pages/History/history.jsx";
 import Health from "./Pages/Health/health.jsx";
 import Form from './Pages/form/sform.jsx';
-import Form2 from './Pages/form/paient.jsx'
+import Form2 from './Pages/form/paient.jsx';
+
 const router = createBrowserRouter([
   {
     element:<App/>,

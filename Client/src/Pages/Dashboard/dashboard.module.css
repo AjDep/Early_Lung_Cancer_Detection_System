@@ -42,6 +42,7 @@
 .bottem_left{
     display: flex;
     justify-content: space-between;
+    font-size: 10px;
 }
 .calendar-card{
     margin-top: 40px;
@@ -49,4 +50,8 @@
 .chart{
     width: 250px;
     height: 300px;
+}
+.appoinments{
+    padding-top: 5px;
+    margin-top: 5px;
 }
