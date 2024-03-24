@@ -66,7 +66,7 @@ app.get('/api/customer/count', (request, response) => {
 app.get('/api/customer/count2', async (request, response) => {
     try {
         const range=200; //<- Get the hardware alkane range here
-        const count = await database.collection("MedicalAnylasis")
+        const count = await database.collection("FinalResult")
             .countDocuments({ AlkaneRange: range });
 
         response.status(200).json({ count });

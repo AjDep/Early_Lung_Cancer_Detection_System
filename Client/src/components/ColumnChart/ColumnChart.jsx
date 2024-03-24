@@ -6,7 +6,7 @@ function ColumnChart() {
   const [apiData, setApiData] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5038/api/Customer/Chart')
+    fetch('http://localhost:5038/api/Customer/Chart?month=9')
       .then(response => response.json())
       .then(data => setApiData(data))
       .catch(error => console.error("Error fetching data:", error));

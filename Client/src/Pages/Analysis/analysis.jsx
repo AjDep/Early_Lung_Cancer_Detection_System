@@ -90,9 +90,9 @@ function Analysis(){
 
     fetchData(); // Call fetchData when component mounts
   }, []);
-
-const similarAlkanePercentageOfTotalUsers=((Ecount/Totalcount)*100);
-const similarAlkanePercentageOfTotalUsersWithCancer=((Ccount/Totalcount)*100);
+  const similarAlkanePercentageOfTotalUsers = ((Ecount / Totalcount) * 100).toFixed(2);
+  const similarAlkanePercentageOfTotalUsersWithCancer = ((Ccount / Totalcount) * 100).toFixed(2);
+  
 
   const cards = [
     {Details: "Number of people with the same result.", value:Ecount},
