@@ -18,6 +18,9 @@ function Analysis(){
   const [Ccount, setCCount] = useState(''); //->Patients that have cancer with the similar ALkane level
   const [NCcount, setNCCount] = useState(''); //->Patients that don't have cancer with the similar Alkane level
   const [Totalcount,setTotalCount] = useState(''); //->Total number of Patients with similar Alkane levels
+  const [lastResult, setLastResult] = useState(''); // State variable to store the last result
+  const [recommendation, setRecommendation] = useState(""); 
+
 
 
 
@@ -95,6 +98,48 @@ function Analysis(){
     fetchData(); // Call fetchData when component mounts
   }, []);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:5038/api/customer/lastResult');
+        if (!response.ok) {
+          throw new Error('Failed to fetch data');
+        }
+        const data = await response.json();
+        if (data && data.Risk) {
+          setLastResult(data.Risk); // Set the fetched result in state
+        } else {
+          throw new Error('Result not found in the fetched data');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        // Handle errors, show error messages, etc.
+      }
+    };
+  
+    fetchData(); // Call fetchData when the component mounts
+  
+    // Add dependencies if necessary
+  }, []); // Empty dependency array for one-time effect
+  // Determine recommendation based on lastResult
+  useEffect(() => {
+    if (lastResult === "low risk") {
+      setRecommendation("You are okay");
+    }
+    else if (lastResult==="high risk"){
+      setRecommendation("We recommend you to consult a doctor");
+    }
+    else {
+      setRecommendation("Some recommendation here"); 
+    }
+  }, [lastResult]); // Run this effect whenever lastResult changes
+
+  const top_cards = [
+    { title: "Prediction", value: lastResult },
+    { title: "Recommendation", value: recommendation },
+  ];
+
+ 
   const similarAlkanePercentageOfTotalUsers = ((Ecount / Totalcount) * 100).toFixed(2);
   const similarAlkanePercentageOfTotalUsersWithCancer = ((Ccount / Totalcount) * 100).toFixed(2);
   
@@ -105,10 +150,6 @@ function Analysis(){
     {Details: "Non-cancer individuals with equivalent alkane levels.", value: NCcount},
     {Details: "Similar alkane levels as a percentage of total users.", value:similarAlkanePercentageOfTotalUsers+"%" },
     {Details: "Cancer-diagnosed individuals as a percentage.", value: similarAlkanePercentageOfTotalUsersWithCancer +"%"},
-  ];
-  const top_cards = [
-    { title: "Prediction", value: "predict" },
-    { title: "Recommendation", value: "recomendation" },
   ];
 
   return (
