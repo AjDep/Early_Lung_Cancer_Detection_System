@@ -156,16 +156,16 @@ def predict():
     try:
         if feature_detection==1 and device_detection==1:
             print("You are at HIGH RISK !!! ")
-            return jsonify({'cancerStatus ': "You are at HIGH RISK !!!"})
+            return jsonify({'cancerStatus ': "You are at HIGH RISK !!!",'devicePrediction':str(device_detection),'featurePrediction':str(feature_detection)})
         elif device_detection==1 and feature_detection==0:
             print("You are at MODERATE RISK !!! ")
-            return jsonify({'cancerStatus ': "You are at MODERATE RISK !!!"})
+            return jsonify({'cancerStatus ': "You are at MODERATE RISK !!!",'devicePrediction':str(device_detection),'featurePrediction':str(feature_detection)})
         elif device_detection==0 and feature_detection==1:
             print("You are at LOW RISK !!!")
-            return jsonify({'cancerStatus ': "You are at LOW RISK !!!"})
+            return jsonify({'cancerStatus ': "You are at LOW RISK !!!",'devicePrediction':str(device_detection),'featurePrediction':str(feature_detection)})
         else :
             print("You are lung CANCER FREE !!!")
-            return jsonify({'cancerStatus ': "You are lung CANCER FREE !!!"})
+            return jsonify({'cancerStatus ': "You are lung CANCER FREE !!!",'devicePrediction':str(device_detection),'featurePrediction':str(feature_detection)})
     except Exception as e:
         print(e)
 
