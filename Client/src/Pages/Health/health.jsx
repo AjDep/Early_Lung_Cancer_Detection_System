@@ -5,6 +5,7 @@ import style from "./health.module.css";
 import Girl from "./../../assets/Girl.png";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
+import Header from "../../components/header/header";
 
 
 function Health() {
