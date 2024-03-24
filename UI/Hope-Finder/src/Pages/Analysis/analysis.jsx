@@ -15,35 +15,30 @@ function Analysis(){
    {Details:"Cancer-diagnosed individuals as a percentage.", value:"60.0%"},
   ]
 
-
     return(
-    <div className={style.contaner}>
-    <Navbar/>
-      <div>
-        <Header name="Analysis"/>
+   
+    <div>
+      <Navbar/>
+      <Header name="Analysis"/>
+      <div className="content">
+        <div className={style.top_container}>
+          <Pie_chart/>
+          <img src={lung} alt=""  className={style.lung}/>
+        </div>
 
-        <div className={style.content}>
-          <div className={style.top_container}>
-           <Pie_chart/>
-           <img src={lung} alt=""  className={style.lung}/>
+        <div className={style.bottem_container}>
+          <div className={style.bottem_left}>
+            {
+              cards.map((card,i) =>{
+                  return(
+                    <Bottem_card key={i} Details={card.Details} value={card.value} />
+                  );
+                }
+              ) 
+            }
+  
           </div>
-          <div className={style.bottem_container}>
-            
-            <div className={style.bottem_left}>
-
-              {
-                cards.map((card,i) =>{
-                    return(
-                      <Bottem_card key={i} Details={card.Details} value={card.value} />
-                    );
-                  }
-                ) 
-              }
-
-            </div>
-            <div className={style.bottem_right}>
-             
-            </div>
+          <div className={style.bottem_right}>
           </div>
         </div>
       </div>

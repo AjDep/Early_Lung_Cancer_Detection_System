@@ -8,7 +8,6 @@ function Bottem_card(props){
             <div>
                 <h1>{props.value}</h1>
             </div>
-            
         </div>
     );
 }
