@@ -3,11 +3,15 @@
     margin-top: 16px;
     margin-left: 30px;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     gap:5%;
 }
-
+.detail{
+    display: flex;
+    gap:5%;
+    align-items: center;
+}
 .bottem{
     margin-top: 10px;
     margin-left: 30px;
