@@ -104,22 +104,45 @@ function Analysis(){
 
   return (
     <div>
-      <Header name="Analysis"/>
-      <div className="content">
-        <div className={style.top_container}>
-          <Pie_chart/>
-          <img src={lung} alt="" className={style.lung}/>
-        </div>
-    
-        <div className={style.bottem_container}>
-          <div className={style.bottem_left}>
-            {cards.map((card, i) => (
-              <Bottem_card key={i} Details={card.Details} value={card.value} />
-            ))}
-          </div>
-          <div className={style.bottem_right}></div>
-        </div>
-      </div>
+      <Row>
+        <Header name="Analysis" />
+      </Row>
+      <Row className="content">
+        <Col>
+          <Row>
+            <Col>
+              <div className={style.top_container}>
+                <Pie_chart />
+              </div>
+            </Col>
+            <Col>
+              <div className={style.detail}>
+                {top_cards.map((item, i) => (
+                  <Details key={i} title={item.title} value={item.value} />
+                ))}
+              </div>
+            </Col>
+          </Row>
+
+          <Row>
+            <div>
+              <div className={style.bottem}>
+                {cards.map((card, i) => (
+                  <Bottem_card
+                    key={i}
+                    Details={card.Details}
+                    value={card.value}
+                  />
+                ))}
+              </div>
+            </div>
+          </Row>
+        </Col>
+
+        <Col>
+          <img src={girlImage} alt="" />
+        </Col>
+      </Row>
     </div>
   );
 }

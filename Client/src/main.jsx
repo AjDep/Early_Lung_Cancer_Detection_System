@@ -8,6 +8,7 @@ import Analysis from './Pages/Analysis/analysis.jsx';
 import Dashboard from './Pages/Dashboard/dashboard.jsx';
 import Form from './Pages/form/sform.jsx';
 import Form2 from './Pages/form/paient.jsx'
+import Health from './Pages/Health/health.jsx'
 const router = createBrowserRouter([
   {
     element:<App/>,
@@ -21,8 +22,13 @@ const router = createBrowserRouter([
         element:<Dashboard/>,
       },
       {
-        path:"/form",
-        element:<Form/>
+        path:"/analysis",
+        element:<Analysis/>,
+      },
+    
+      {
+        path:"/health",
+        element:<Health/>
       },
       {
         path:"/form2",
