@@ -33,7 +33,8 @@ app.listen(5038, () => {
 });
 
 
-
+const predictionRoutes = require('./routes/prediction');
+app.use(predictionRoutes);
 
 // Route to handle POST request for form data
 app.post('/api/customer/data', (req, res) => {
@@ -42,10 +43,8 @@ app.post('/api/customer/data', (req, res) => {
 
   // Log the received data
   console.log('Received form data:', formData);
-
-  // Process the data as needed
-  // For example, you can store it in a database or perform other operations
-  
+  const predictionModule = require('../Server/controllers/prediction');
+  predictionModule.detection(formData);
   // Send a response to the client
   res.json({ message: 'Form data received successfully' });
 });

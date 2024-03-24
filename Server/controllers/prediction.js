@@ -1,10 +1,16 @@
-module.exports.detection = (req, res, next) => {
+module.exports.detection = (req, res, next,formData) => {
 
-    const alkanePercentagefromFrontend = alkanePercentage;
-    const featuresfromFrontend=features
+    const alkanePercentagefromform = formData.alkanePercentage;
+    const featuresfromform = formData.features;
+    
     const alkanePercentage = req.body.alkanePercentage;
     const features = req.body.features;
     
+
+
+
+    console.log(alkanePercentagefromform, featuresfromform);
+
     console.log(alkanePercentage, features);
     const axios = require('axios');
     // res
