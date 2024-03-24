@@ -31,6 +31,26 @@ app.listen(5038, () => {
     });
 });
 
+app.get('/api/customer/lastResult', async (req, res) => {
+    const patientID = "P001"; // Assuming you want to get the last result for patient with ID "P001"
+  
+    try {
+      // Access the collection where results are stored
+      const collection = database.collection('FinalResult');
+  
+      // Find the last result for the given patient ID, ensuring await for async operation
+      const lastResult = await collection.findOne({ PatientID: patientID }, { sort: { _id: -1 }});
+  
+      if (!lastResult) {
+        return res.status(404).json({ message: 'Patient not found or no results available' });
+      }
+  
+      res.json(lastResult);
+    } catch (err) {
+      console.error("Error retrieving last result:", err); // Log specific error message
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  });
 // Global error handling middleware
 app.use((err, req, res, next) => {
     console.error(err.stack);
@@ -200,3 +220,5 @@ app.get('/api/customer/:id', (req, res) => {
         res.status(500).json({ error: "Error" });
     }
 });
+
+  
