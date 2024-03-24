@@ -12,8 +12,32 @@ import PieChart from '../../components/PieChart/PieChart';
 import ColumnChart from '../../components/ColumnChart/ColumnChart';
 import BasicSelect from '../../components/BasicSelect/BasicSelect';
 import ScrollableBox from '../../components/ScrollableBox/ScrollableBox';
-
+import React, { useState, useEffect } from 'react';
+import List from '../../components/Dashboard/docList'
+    
 function Dashboard() {
+    const [data, setData] = useState("");
+   
+      
+      useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await fetch('http://localhost:5038/api/customer/getnotes/Name');
+            if (!response.ok) {
+              const errorMessage = await response.text();
+              throw new Error(`HTTP error! Status: ${response.status}, Message: ${errorMessage}`);
+            }
+            const data = await response.json();
+            setData(data);
+          } catch (error) {
+            setError(error);
+          }
+        };
+    
+        fetchData();
+      }, []); // Empty dependency array means this effect runs only once after the initial render
+    
+
     return (
       
         <div className={style.contaner}>
@@ -23,13 +47,19 @@ function Dashboard() {
                 <div className={style.content}>
                     <div className={style.container4}>
                         <div>
-                            <div className={style.container2}>
-                                <div>
-                                    <Card2 Details="Hi Pramoth ! " value="Have you had a routine health check this month ?" />
-                                </div>
-                                <div >
-                                    <Card3 Details="Your Last Breath Test" value={<PieChart />} />
-                                </div>
+                        <div className={style.container2}>
+                            
+                            <div>
+                                {/* Use optional chaining to safely access FirstName */}
+                                {data?.name?.FirstName && (
+                                <Card2 Details={"Hi! "+data.name.FirstName} value="Have you had a routine health check this month ?" />
+                                
+                                )}
+                               
+                            </div>
+                            <div >
+                                <Card3 Details="Your Last Breath Test" value={<PieChart />} />
+                            </div>
                             </div>
 
                             {/* <Card Details="Hi Josepine ! Check your health"/> */}
@@ -57,8 +87,8 @@ function Dashboard() {
                                 <Calendar />
                             </div>
                             <div>
-                                <div><h3 style={{marginLeft:'25px'}}>Upcoming Test and Appoinments</h3></div>
-                                <ScrollableBox />
+                                <div><h3>Upcoming Test and Appoinments</h3></div>
+                                <List/>
                             </div>
                         </div>
                     </div>
