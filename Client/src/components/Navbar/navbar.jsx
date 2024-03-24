@@ -5,9 +5,10 @@ import Health from './../../assets/Navbar_Health-Icon.svg';
 import History from './../../assets/Navbar_History_btn.svg';
 import Setting from './../../assets/Setting_Settings_Btn.svg';
 import LogOut from './../../assets/Navbar_Log-Out-icon.svg';
-import style from './navbar.module.css'
+import style from './navbar.module.css';
 import { NavLink } from 'react-router-dom';
 
+import {Row,Col} from "react-bootstrap";
 
 function Navbar(props){
 
