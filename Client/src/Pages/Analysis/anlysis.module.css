@@ -2,8 +2,10 @@
 .top_container{
     margin-top: 16px;
     margin-left: 30px;
-    display: grid;
-    grid-template-columns: 1fr 1fr ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:5%;
 }
 
 .bottem{
@@ -17,12 +19,12 @@
     height: 300px;
     margin-left: 200px;
 }
-.detail{
-    margin-top: 30px;
-}
+
 .Top{
     display: flex;
+    flex-wrap: wrap;
+    gap:5%;
 }
-.Content{
+.ContentofAN{
     display: flex;
 }

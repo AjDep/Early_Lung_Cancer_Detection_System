@@ -5,8 +5,9 @@ import Pie_chart from './../../components/Analysis/pie_chart';
 import style from './anlysis.module.css';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import girlImage from "./../../assets/Girl.png";
+import GirlImage from "./../../assets/Girl.png";
 import Details from "./../../components/Analysis/details";
+import MyLottieAnimation from '../../components/Animations/animation';
 
 
 function Analysis(){
@@ -114,9 +115,10 @@ function Analysis(){
     <div>
       <Header name="Analysis" />
 
-      <Row className="content">
-        <Col>
-          <Row className={style.Top}>
+      <div className='content'>
+        <div className={style.ContentofAN}>
+        <div>
+          <div className={style.Top}>
             <Col>
               <div className={style.top_container}>
                 <Pie_chart />
@@ -129,9 +131,8 @@ function Analysis(){
                 ))}
               </div>
             </Col>
-          </Row>
+          </div>
 
-          <Row>
             <div>
               <div className={style.bottem}>
                 {cards.map((card, i) => (
@@ -143,15 +144,14 @@ function Analysis(){
                 ))}
               </div>
             </div>
-          </Row>
-        </Col>
+        </div>
 
         <Col>
-        <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
-
-       
+        <MyLottieAnimation/>
+        {/* <img src={GirlImage} alt="Girl" /> */}
         </Col>
-      </Row>
+      </div>
+      </div>
     </div>
   );
 }

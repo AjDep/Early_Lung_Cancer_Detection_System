@@ -4,15 +4,15 @@ import Col from "react-bootstrap/Col";
 
 function Details(props) {
   return (
-    <Col className={style.card}>
-      <Row>
+    <div className={style.card}>
+      <div>
         <h6>{props.title}</h6>
-      </Row>
+      </div>
       
-      <Row id={style.box} className="p-2">
+      <div id={style.box} className="p-2">
         <p className={style.text}>{props.value}</p>
-      </Row>
-    </Col>
+      </div>
+    </div>
   );
 }
 export default Details;
