@@ -1,5 +1,7 @@
 module.exports.detection = (req, res, next) => {
 
+    const alkanePercentagefromFrontend = alkanePercentage;
+    const featuresfromFrontend=features
     const alkanePercentage = req.body.alkanePercentage;
     const features = req.body.features;
     
