@@ -16,7 +16,33 @@ function Analysis(){
   const [Totalcount,setTotalCount] = useState(''); //->Total number of Patients with similar Alkane levels
 
 
-
+  useEffect(() => {
+    const fetchDataFromMongo = async (customerId) => {
+      try {
+        const response = await fetch(`http://localhost:5038/api/Customer/${customerId}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch');
+        }
+        const contentType = response.headers.get('content-type');
+        if (contentType && contentType.includes('application/json')) {
+          const data = await response.json();
+          const phoneNumber = data.ContactNumber;
+          const Name=data.name;
+          setPhoneNumber(phoneNumber);
+          setName(Name);
+        } else {
+          throw new Error('Response is not JSON');
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        setPhoneNumber('Error fetching phone number');
+      }
+    };
+  
+    const customerId = '65f2b0f77cd285a6382417a4'; // Replace with the actual customer ID
+    fetchDataFromMongo(customerId);
+  
+  }, []);
    // Empty dependency array for one-time effect
 
    useEffect(() => {
@@ -104,45 +130,25 @@ const similarAlkanePercentageOfTotalUsersWithCancer=((Ccount/Totalcount)*100);
 
   return (
     <div>
-      <Row>
-        <Header name="Analysis" />
-      </Row>
-      <Row className="content">
-        <Col>
-          <Row>
-            <Col>
-              <div className={style.top_container}>
-                <Pie_chart />
-              </div>
-            </Col>
-            <Col>
-              <div className={style.detail}>
-                {top_cards.map((item, i) => (
-                  <Details key={i} title={item.title} value={item.value} />
-                ))}
-              </div>
-            </Col>
-          </Row>
-
-          <Row>
-            <div>
-              <div className={style.bottem}>
-                {cards.map((card, i) => (
-                  <Bottem_card
-                    key={i}
-                    Details={card.Details}
-                    value={card.value}
-                  />
-                ))}
-              </div>
-            </div>
-          </Row>
-        </Col>
-
-        <Col>
-          <img src={girlImage} alt="" />
-        </Col>
-      </Row>
+      <Header name="Analysis"/>
+      <div className="content">
+        <div className={style.top_container}>
+          <Pie_chart/>
+          <img src={lung} alt="" className={style.lung}/>
+        </div>
+        <div>
+          Name :{Name}<br></br>
+          Phone Number: {phoneNumber}
+        </div>
+        <div className={style.bottem_container}>
+          <div className={style.bottem_left}>
+            {cards.map((card, i) => (
+              <Bottem_card key={i} Details={card.Details} value={card.value} />
+            ))}
+          </div>
+          <div className={style.bottem_right}></div>
+        </div>
+      </div>
     </div>
   );
 }
