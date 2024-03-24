@@ -131,9 +131,6 @@ app.get('/api/customer/count4', async (request, response) => {
     }
 });
 
-
-
-
 app.get('/api/customer/getnotes/Name', (request, response) => {
     
     
@@ -147,6 +144,7 @@ app.get('/api/customer/getnotes/Name', (request, response) => {
             response.status(500).json({ error: "Could not fetch documents" });
         });
 });
+
 app.get('/api/customer/Appointment', (request, response) => {
     
     
@@ -161,6 +159,7 @@ app.get('/api/customer/Appointment', (request, response) => {
             response.status(500).json({ error: "Could not fetch documents" });
         });
 });
+
 app.get('/api/customer/chart', (request, response) => {
     database.collection("MedicalAnylasis")
     .find(
