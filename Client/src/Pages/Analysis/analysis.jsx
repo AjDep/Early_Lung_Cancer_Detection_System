@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Header from './../../components/header/header';
 import Bottem_card from './../../components/Analysis/bottem_card';
 import Pie_chart from './../../components/Analysis/pie_chart';
-import Navbar from './../../components/Navbar/navbar';
 import style from './anlysis.module.css';
-import lung from './../../assets/Lung 2.png'
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import girlImage from "./../../assets/Girl.png";
+import Details from "./../../components/Analysis/details";
+
 
 function Analysis(){
 
@@ -16,33 +19,7 @@ function Analysis(){
   const [Totalcount,setTotalCount] = useState(''); //->Total number of Patients with similar Alkane levels
 
 
-  useEffect(() => {
-    const fetchDataFromMongo = async (customerId) => {
-      try {
-        const response = await fetch(`http://localhost:5038/api/Customer/${customerId}`);
-        if (!response.ok) {
-          throw new Error('Failed to fetch');
-        }
-        const contentType = response.headers.get('content-type');
-        if (contentType && contentType.includes('application/json')) {
-          const data = await response.json();
-          const phoneNumber = data.ContactNumber;
-          const Name=data.name;
-          setPhoneNumber(phoneNumber);
-          setName(Name);
-        } else {
-          throw new Error('Response is not JSON');
-        }
-      } catch (error) {
-        console.error('Error fetching data:', error);
-        setPhoneNumber('Error fetching phone number');
-      }
-    };
-  
-    const customerId = '65f2b0f77cd285a6382417a4'; // Replace with the actual customer ID
-    fetchDataFromMongo(customerId);
-  
-  }, []);
+
    // Empty dependency array for one-time effect
 
    useEffect(() => {
@@ -117,8 +94,9 @@ function Analysis(){
     fetchData(); // Call fetchData when component mounts
   }, []);
 
-const similarAlkanePercentageOfTotalUsers=((Ecount/Totalcount)*100);
-const similarAlkanePercentageOfTotalUsersWithCancer=((Ccount/Totalcount)*100);
+  const similarAlkanePercentageOfTotalUsers = ((Ecount / Totalcount) * 100).toFixed(2);
+  const similarAlkanePercentageOfTotalUsersWithCancer = ((Ccount / Totalcount) * 100).toFixed(2);
+  
 
   const cards = [
     {Details: "Number of people with the same result.", value:Ecount},
@@ -127,28 +105,53 @@ const similarAlkanePercentageOfTotalUsersWithCancer=((Ccount/Totalcount)*100);
     {Details: "Similar alkane levels as a percentage of total users.", value:similarAlkanePercentageOfTotalUsers+"%" },
     {Details: "Cancer-diagnosed individuals as a percentage.", value: similarAlkanePercentageOfTotalUsersWithCancer +"%"},
   ];
+  const top_cards = [
+    { title: "Prediction", value: "predict" },
+    { title: "Recommendation", value: "recomendation" },
+  ];
 
   return (
     <div>
-      <Header name="Analysis"/>
-      <div className="content">
-        <div className={style.top_container}>
-          <Pie_chart/>
-          <img src={lung} alt="" className={style.lung}/>
-        </div>
-        <div>
-          Name :{Name}<br></br>
-          Phone Number: {phoneNumber}
-        </div>
-        <div className={style.bottem_container}>
-          <div className={style.bottem_left}>
-            {cards.map((card, i) => (
-              <Bottem_card key={i} Details={card.Details} value={card.value} />
-            ))}
-          </div>
-          <div className={style.bottem_right}></div>
-        </div>
-      </div>
+      <Header name="Analysis" />
+
+      <Row className="content">
+        <Col>
+          <Row className={style.Top}>
+            <Col>
+              <div className={style.top_container}>
+                <Pie_chart />
+              </div>
+            </Col>
+            <Col>
+              <div className={style.detail}>
+                {top_cards.map((item, i) => (
+                  <Details key={i} title={item.title} value={item.value} />
+                ))}
+              </div>
+            </Col>
+          </Row>
+
+          <Row>
+            <div>
+              <div className={style.bottem}>
+                {cards.map((card, i) => (
+                  <Bottem_card
+                    key={i}
+                    Details={card.Details}
+                    value={card.value}
+                  />
+                ))}
+              </div>
+            </div>
+          </Row>
+        </Col>
+
+        <Col>
+        <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+
+       
+        </Col>
+      </Row>
     </div>
   );
 }

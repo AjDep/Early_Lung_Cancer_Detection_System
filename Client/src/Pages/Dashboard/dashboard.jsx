@@ -38,23 +38,6 @@ function Dashboard() {
       }, []); // Empty dependency array means this effect runs only once after the initial render
     
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     return (
       
         <div className={style.contaner}>
@@ -65,11 +48,14 @@ function Dashboard() {
                     <div className={style.container4}>
                         <div>
                         <div className={style.container2}>
+                            
                             <div>
                                 {/* Use optional chaining to safely access FirstName */}
                                 {data?.name?.FirstName && (
                                 <Card2 Details={"Hi! "+data.name.FirstName} value="Have you had a routine health check this month ?" />
+                                
                                 )}
+                               
                             </div>
                             <div >
                                 <Card3 Details="Your Last Breath Test" value={<PieChart />} />

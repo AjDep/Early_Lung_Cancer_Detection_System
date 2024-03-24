@@ -13,7 +13,9 @@ app.use(cors());
 app.use(express.json());
 
 // Constants
-const CONNECTION_STRING = "mongodb+srv://wanjanadep:Kj5316bolf@customers.29nkvpy.mongodb.net/?retryWrites=true&w=majority&appName=Customers";
+//const CONNECTION_STRING = "mongodb+srv://wanjanadep:Kj5316bolf@customers.29nkvpy.mongodb.net/?retryWrites=true&w=majority&appName=Customers";
+const CONNECTION_STRING = "mongodb://wanjanadep:Kj5316bolf@ac-xkvabjg-shard-00-00.29nkvpy.mongodb.net:27017,ac-xkvabjg-shard-00-01.29nkvpy.mongodb.net:27017,ac-xkvabjg-shard-00-02.29nkvpy.mongodb.net:27017/?ssl=true&replicaSet=atlas-ak8azu-shard-0&authSource=admin&retryWrites=true&w=majority&appName=Customers";
+
 const DATABASE_NAME = "HopeFinder";
 let database;
 
@@ -66,7 +68,7 @@ app.get('/api/customer/count', (request, response) => {
 app.get('/api/customer/count2', async (request, response) => {
     try {
         const range=200; //<- Get the hardware alkane range here
-        const count = await database.collection("MedicalAnylasis")
+        const count = await database.collection("FinalResult")
             .countDocuments({ AlkaneRange: range });
 
         response.status(200).json({ count });
