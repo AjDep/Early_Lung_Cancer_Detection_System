@@ -30,6 +30,8 @@ function ConfirmationDialogRaw(props) {
     // Add other form fields here and set their default values
   });
 
+  const [submissionStatus, setSubmissionStatus] = useState(null);
+
   const handleSwitchChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.checked });
   };
@@ -47,10 +49,12 @@ function ConfirmationDialogRaw(props) {
       .then((data) => {
         console.log("Success:", data);
         // Handle success response from backend
+        setSubmissionStatus("success");
       })
       .catch((error) => {
         console.error("Error:", error);
         // Handle error
+        setSubmissionStatus("error");
       });
   };
 
@@ -72,6 +76,12 @@ function ConfirmationDialogRaw(props) {
         ))}
       </List>
       <button onClick={handleSubmit}>Submit</button>
+      {submissionStatus === "success" && (
+        <div>Form submitted successfully!</div>
+      )}
+      {submissionStatus === "error" && (
+        <div>Error submitting form. Please try again later.</div>
+      )}
     </div>
   );
 }
