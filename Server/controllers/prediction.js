@@ -2,7 +2,7 @@ module.exports.detection = (req, res, next,formData) => {
 
     const alkanePercentagefromform = formData.alkanePercentage;
     const featuresfromform = formData.features;
-    
+
     const alkanePercentage = req.body.alkanePercentage;
     const features = req.body.features;
     

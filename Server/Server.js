@@ -6,9 +6,13 @@ const multer = require("multer");
 const EmployeeModel = require('./models/Employee');
 const { ObjectId } = require('mongodb');
 const fs = require('fs').promises; // Import the fs modul
-
+const SerialPort = require('serialport');
+const Readline = require('@serialport/parser-readline');
 const app = express();
-const myid = "65f5a1fe82719ff7d425d204";
+const myid = "65f2b0f77cd285a6382417a4";
+const patientID = "P001";
+const range=200;
+
 // Middleware
 app.use(cors());
 app.use(express.json());
@@ -29,12 +33,28 @@ app.listen(5038, () => {
         }
         database = client.db(DATABASE_NAME);
         console.log("Mongo DB connected");
+                // Retrieve patientID from MongoDB
+                database.collection('Paient').findOne({ _id: myid }, (err, result) => {
+                    if (err) {
+                        console.error("Error retrieving patientID:", err);
+                        return;
+                    }
+                    if (result) {
+                        patientID = result.PatientID;
+
+                        console.log("Retrieved patientID:", patientID);
+                    } else {
+                    
+                        
+                        console.log("PatientID not found");
+                    }
     });
 });
-
+});
 
 const predictionRoutes = require('./routes/prediction');
 app.use(predictionRoutes);
+
 
 // Route to handle POST request for form data
 app.post('/api/customer/data', (req, res) => {
@@ -43,15 +63,15 @@ app.post('/api/customer/data', (req, res) => {
 
   // Log the received data
   console.log('Received form data:', formData);
-  const predictionModule = require('../Server/controllers/prediction');
-  predictionModule.detection(formData);
+  //const predictionModule = require('../Server/controllers/prediction');
+  //predictionModule.detection(formData);
   // Send a response to the client
   res.json({ message: 'Form data received successfully' });
 });
 
 
 app.get('/api/customer/lastResult', async (req, res) => {
-    const patientID = "P001"; // Assuming you want to get the last result for patient with ID "P001"
+     
   
     try {
       // Access the collection where results are stored
@@ -106,7 +126,7 @@ app.get('/api/customer/count', (request, response) => {
 //Total number of Patients with similar Alkane levels
 app.get('/api/customer/count2', async (request, response) => {
     try {
-        const range=200; //<- Get the hardware alkane range here
+        
         const count = await database.collection("FinalResult")
             .countDocuments({ AlkaneRange: range });
 
@@ -122,7 +142,7 @@ app.get('/api/customer/count2', async (request, response) => {
 // how to get 2 conditions using aggregate
 app.get('/api/customer/count3', async (request, response) => {
     try {
-        const range = 200; // Get the hardware alkane range here
+        
         const count = await database.collection("FinalResult").aggregate([
             {
                 $match: {
@@ -147,7 +167,7 @@ app.get('/api/customer/count3', async (request, response) => {
 ////Total number of Patients that don't have cancer with the similar Alkane level
 app.get('/api/customer/count4', async (request, response) => {
     try {
-        const range = 200; // Get the hardware alkane range here
+       
         const count = await database.collection("FinalResult").aggregate([
             {
                 $match: {
@@ -174,7 +194,7 @@ app.get('/api/customer/getnotes/Name', (request, response) => {
     
     
     database.collection("Paient")
-        .findOne({ _id: ObjectId(myid) }, { projection: { name: 1, _id: 0 } })
+        .findOne({ PatientID:patientID}, { projection: { name: 1, _id: 0 } })
         .then(patients => {
             response.status(200).json(patients);
         })
@@ -185,10 +205,8 @@ app.get('/api/customer/getnotes/Name', (request, response) => {
 });
 
 app.get('/api/customer/Appointment', (request, response) => {
-    
-    
-    database.collection("DocAppoinments")
-        .find({ patient_id:"P001"}, { projection: {  hospital:1,appointment_date:1,doctor_name: 1, _id: 0 } })
+database.collection("DocAppoinments")
+        .find({ patient_id:patientID}, { projection: {  hospital:1,appointment_date:1,doctor_name: 1, _id: 0 } })
         .toArray()
         .then(patients => {
             response.status(200).json(patients);
@@ -202,7 +220,7 @@ app.get('/api/customer/Appointment', (request, response) => {
 app.get('/api/customer/chart', (request, response) => {
     database.collection("MedicalAnylasis")
     .find(
-        { PatientID: {$in: ["P001", "P002"] } },
+        { PatientID: patientID },
         { projection: { AlkaneRange: 1, Date: 1, color: 1 } }
     )
     .toArray()
@@ -238,3 +256,13 @@ app.get('/api/customer/:id', (req, res) => {
         res.status(500).json({ error: "Error" });
     }
 });
+
+
+// const port = new SerialPort('COM5', { baudRate: 9600 }); // Change the port accordingly
+
+// const parser = port.pipe(new Readline({ delimiter: '\n' }));
+
+// parser.on('data', (data) => {
+//   console.log('Arduino Data:', data);
+//   // Here you can process the data received from Arduino
+// });
