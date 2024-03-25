@@ -15,5 +15,6 @@ function onOpen(){
 }
 
 function onData(){
+    Data = 100;
     console.log("On Data: "+data);
 }
