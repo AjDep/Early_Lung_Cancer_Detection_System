@@ -42,11 +42,18 @@ app.post('/api/customer/data', (req, res) => {
   const formData = req.body;
 
   // Log the received data
-  console.log('Received form data:', formData);
+  //console.log('Received form data:', formData);
   const predictionModule = require('../Server/controllers/prediction');
-  predictionModule.detection(formData);
-  // Send a response to the client
-  res.json({ message: 'Form data received successfully' });
+
+  predictionModule.detection(req, res, formData)
+    .then((prediction) => {
+      // Send the prediction back to the client
+      res.json({ message: prediction });
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      res.status(500).json({ error: 'An error occurred while processing the prediction.' });
+    });
 });
 
 
