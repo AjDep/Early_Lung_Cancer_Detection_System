@@ -5,13 +5,14 @@ const cors = require("cors");
 const multer = require("multer");
 const EmployeeModel = require('./models/Employee');
 const { ObjectId } = require('mongodb');
+const fs = require('fs').promises; // Import the fs modul
 
 const app = express();
 const myid = "65f5a1fe82719ff7d425d204";
 // Middleware
 app.use(cors());
 app.use(express.json());
-
+app.use(express.urlencoded({ extended: true }));
 // Constants
 //const CONNECTION_STRING = "mongodb+srv://wanjanadep:Kj5316bolf@customers.29nkvpy.mongodb.net/?retryWrites=true&w=majority&appName=Customers";
 const CONNECTION_STRING = "mongodb://wanjanadep:Kj5316bolf@ac-xkvabjg-shard-00-00.29nkvpy.mongodb.net:27017,ac-xkvabjg-shard-00-01.29nkvpy.mongodb.net:27017,ac-xkvabjg-shard-00-02.29nkvpy.mongodb.net:27017/?ssl=true&replicaSet=atlas-ak8azu-shard-0&authSource=admin&retryWrites=true&w=majority&appName=Customers";
@@ -30,6 +31,31 @@ app.listen(5038, () => {
         console.log("Mongo DB connected");
     });
 });
+
+
+const predictionRoutes = require('./routes/prediction');
+app.use(predictionRoutes);
+
+// Route to handle POST request for form data
+app.post('/api/customer/data', (req, res) => {
+  // Retrieve data from the request body
+  const formData = req.body;
+
+  // Log the received data
+  //console.log('Received form data:', formData);
+  const predictionModule = require('../Server/controllers/prediction');
+
+  predictionModule.detection(req, res, formData)
+    .then((prediction) => {
+      // Send the prediction back to the client
+      res.json({ message: prediction });
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      res.status(500).json({ error: 'An error occurred while processing the prediction.' });
+    });
+});
+
 
 app.get('/api/customer/lastResult', async (req, res) => {
     const patientID = "P001"; // Assuming you want to get the last result for patient with ID "P001"
@@ -219,5 +245,3 @@ app.get('/api/customer/:id', (req, res) => {
         res.status(500).json({ error: "Error" });
     }
 });
-
-  

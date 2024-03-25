@@ -165,13 +165,13 @@ function Analysis(){
                 <Pie_chart />
               </div>
             </Col>
-            <Col>
+            
               <div className={style.detail}>
                 {top_cards.map((item, i) => (
                   <Details key={i} title={item.title} value={item.value} />
                 ))}
               </div>
-            </Col>
+            
           </div>
 
             <div>
