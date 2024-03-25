@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Style from '../../components/Dashboard/docList.module.css';
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import { style } from '@mui/system';
 
 const ListComponent = () => {
   const [appointments, setAppointments] = useState([]);
@@ -25,9 +28,18 @@ const ListComponent = () => {
       <ul className={Style.List}>
         {appointments.map(appointment => (
           <li className={Style.ListItem} key={appointment.doctor_name}>
-            <h4>{appointment.doctor_name}</h4>
-            <p>{appointment.appointment_date}<br></br>
+            <Row className={Style.appointment}>
+              <Col sm={5}>
+              <h6>{appointment.doctor_name}</h6>
+              </Col>
+              <Col sm={7}>
+               <p>{appointment.appointment_date}<br></br>
             {appointment.hospital}</p>
+              </Col>
+            
+           
+            </Row>
+            
           </li>
         ))}
       </ul>

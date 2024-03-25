@@ -11,7 +11,7 @@ function Card(props){
                     <p>{props.icon}</p>
                 </div>
                 <div>
-                    <h3>{props.value}</h3>
+                    <h5>{props.value}</h5>
                 </div>
             </div>
         </div>
