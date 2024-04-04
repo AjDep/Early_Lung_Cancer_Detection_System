@@ -16,6 +16,7 @@ import React, { useState, useEffect } from "react";
 import List from "../../components/Dashboard/docList";
 import Button from "react-bootstrap/Button";
 import Health from "./../Health/health";
+import { NavLink } from 'react-router-dom';
 
 function Dashboard() {
   const [data, setData] = useState("");
@@ -71,16 +72,16 @@ function Dashboard() {
               {/* <Card Details="Hi Josepine ! Check your health"/> */}
               <div className={style.bottem_left}>
                
-                <Button className={style.button12} variant="light" size="lg">
+                <NavLink style={{ textDecoration: 'none', color: '#000', padding: '10px', borderRadius: '5px' }} to={"/history"} className={style.button12} variant="light" size="lg">
                   <h5>
                     <HistoryOutlinedIcon /> History Analysis
                   </h5>
-                </Button>{" "}
-                <Button className={style.button12} variant="light" size="lg">
+                </NavLink>{" "}
+                <NavLink style={{ textDecoration: 'none', color: '#000', padding: '10px', borderRadius: '5px' }} to={"/health"} className={style.button12} variant="light" size="lg">
                   <h5>
                     <MedicalServicesOutlinedIcon /> Early Diagnosis
                   </h5>
-                </Button>{" "}
+                </NavLink>{" "}
 
               </div>
               <div className={style.container3}>
