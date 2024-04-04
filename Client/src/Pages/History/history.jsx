@@ -1,78 +1,109 @@
 import Header from "../../components/header/header";
 import * as React from "react";
-import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import { Row, Col } from "react-bootstrap";
-import Pie_chart from "./../../components/Analysis/pie_chart";
-import style from "./history.module.css";
-import Chip from "@mui/material/Chip";
+import List from "../../components/List/List"
+import s from "../History/history.module.css"
+import { Statistic } from 'antd';
+import CountUp from 'react-countup';
+import { useState,useEffect } from "react";
 
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 
-import { LineChart } from "@mui/x-charts/LineChart";
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  alignItems: "center",
-  color: theme.palette.text.secondary,
-}));
-
-const settings = {
-  width: 200,
-  height: 200,
-  value: 60,
-};
+const formatter = (value) => <CountUp end={value} separator="," />;
 
 function History() {
+  const[TotalTest,setTotaltest]=useState(null);
+  const[PostiveTest,setPositiveTest]=useState(null);
+  const[NegativeTest,setNegativeTest]=useState(null);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:5038/api/patient/AllFinalResults/count');
+        if (!response.ok) {
+          throw new Error('Failed to fetch data');
+        }
+        const { count } = await response.json();
+        setTotaltest(count); // Set the count in state
+      } catch (error) {
+        console.error('Error:', error);
+        // Handle errors, show error messages, etc.
+      }
+    };
+    fetchData(); // Call fetchData when component mounts
+  }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:5038/api/patient/AllFinalResults/count/positive');
+        if (!response.ok) {
+          throw new Error('Failed to fetch data');
+        }
+        const { count } = await response.json();
+        setPositiveTest(count); // Set the count in state
+      } catch (error) {
+        console.error('Error:', error);
+        // Handle errors, show error messages, etc.
+      }
+    };
+    fetchData(); // Call fetchData when component mounts
+  }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:5038/api/patient/AllFinalResults/count/negative');
+        if (!response.ok) {
+          throw new Error('Failed to fetch data');
+        }
+        const { count } = await response.json();
+        setNegativeTest(count); // Set the count in state
+      } catch (error) {
+        console.error('Error:', error);
+        // Handle errors, show error messages, etc.
+      }
+    };
+    fetchData(); // Call fetchData when component mounts
+  }, []);
   return (
     <div>
       <Header name="History" />
-
       <div className="content">
-        <Box sx={{ width: 1 }}>
-          <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={1}>
-            <Box gridColumn="span 8">
-              <Item className={style.box1}>
-                <h1>Test Times</h1>
-                <Chip label="27" color="success" className={style.text} />
-              </Item>
-            </Box>
-            <Box gridColumn="span 4">
-              <Item className={style.box2}>
-                <Pie_chart />
-              </Item>
-            </Box>
-            <Box gridColumn="span 4">
-              <Item>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DateCalendar />
-                </LocalizationProvider>
-              </Item>
-            </Box>
-            <Box gridColumn="span 8">
-              <Item>
-                <LineChart
-                  xAxis={[{ data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }]}
-                  series={[
-                    {
-                      data: [2, 3, 5.5, 8.5, 1.5, 5, 1, 3, 8],
-                      showMark: ({ index }) => index % 2 === 0,
-                    },
-                  ]}
-                  width={500}
-                  height={300}
-                />
-              </Item>
-            </Box>
-          </Box>
-        </Box>
+      <div className={s.content2}>
+
+      <div className={s.LeftSide}>
+        <h1>All Test History</h1>
+        <List/>
       </div>
+
+      <div className={s.RightSide}>
+      
+        <div className={s.AlkaneCard}>
+        <Statistic
+          title="Number of Total Tests"
+          value={TotalTest}
+          formatter={formatter}
+          className='AlknaeCardDeatils' 
+        />
+       </div>
+       <div className={s.AlkaneCard}>
+        <Statistic
+          title="Number of total tests that are positive"
+          value={PostiveTest}
+          formatter={formatter}
+          className='AlknaeCardDeatils' 
+        />
+       </div>
+       <div className={s.AlkaneCard}>
+        <Statistic
+          title="Number of total tests that are negative"
+          value={NegativeTest}
+          formatter={formatter}
+          className='AlknaeCardDeatils' 
+        />
+       </div>
+
+      </div>
+
+      </div>
+
+    </div>
     </div>
   );
 }

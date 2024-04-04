@@ -20,6 +20,7 @@ function Analysis(){
   const [Totalcount,setTotalCount] = useState(''); //->Total number of Patients with similar Alkane levels
   const [lastResult, setLastResult] = useState(''); // State variable to store the last result
   const [recommendation, setRecommendation] = useState(""); 
+  const [AlkaneRange, setAlkaneRange] = useState(""); 
 
 
 
@@ -106,8 +107,14 @@ function Analysis(){
           throw new Error('Failed to fetch data');
         }
         const data = await response.json();
-        if (data && data.Risk) {
+        console.log(data.Risk);
+        console.log("2nd :",data.Risk)
+        if (data && data.Risk && data.AlkaneRange) {
+
           setLastResult(data.Risk); // Set the fetched result in state
+          console.log("2nd :",data.Risk)
+          setAlkaneRange(data.AlkaneRange);
+
         } else {
           throw new Error('Result not found in the fetched data');
         }
@@ -123,11 +130,17 @@ function Analysis(){
   }, []); // Empty dependency array for one-time effect
   // Determine recommendation based on lastResult
   useEffect(() => {
-    if (lastResult === "low risk") {
+    if (lastResult === "You are lung CANCER FREE !!!") {
       setRecommendation("You are okay");
     }
-    else if (lastResult==="high risk"){
+    else if (lastResult==="You are at LOW RISK !!!"){
+      setRecommendation("You are okay but consult a doctor");
+    }
+    else if (lastResult==="You are at MODERATE RISK !!!"){
       setRecommendation("We recommend you to consult a doctor");
+    }
+    else if (lastResult==="You are at HIGH RISK !!!"){
+      setRecommendation("consulting a doctor is must!!");
     }
     else {
       setRecommendation("Some recommendation here"); 
@@ -162,7 +175,7 @@ function Analysis(){
           <div className={style.Top}>
             <Col>
               <div className={style.top_container}>
-                <Pie_chart />
+                <Pie_chart Alvalue={AlkaneRange}/>
               </div>
             </Col>
             
@@ -189,7 +202,7 @@ function Analysis(){
 
         <Col>
         <MyLottieAnimation/>
-        {/* <img src={GirlImage} alt="Girl" /> */}
+       
         </Col>
       </div>
       </div>

@@ -45,15 +45,15 @@ function Signin_boot() {
                 </div>
                 <div className={`text-center ${style.socialLogin}`}>
                   <div className={style.googleLogin}>
-                    <Button variant="outline-dark" className={style.loginbtn}>
+                    {/* <Button variant="outline-dark" className={style.loginbtn}>
                       Login with <strong>GOOGLE</strong>
-                    </Button>
+                    </Button> */}
                  
                   </div>
                   <div className={style.fbLogin}>
-                  <Button variant="outline-dark" className={style.loginbtn}>
+                  {/* <Button variant="outline-dark" className={style.loginbtn}>
                      Login with <strong>FACEBOOK</strong>
-                    </Button>
+                    </Button> */}
                   </div>
                 </div>
               </div>

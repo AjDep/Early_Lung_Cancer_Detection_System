@@ -4,7 +4,8 @@
 }
 
 .content{
-  background: #ddd3f9;
+  background-image: url("../src//assets/background3.webp");
+    background-size:cover;
   padding-left: 5px;
   margin-top: 15px;
   height: 91vh;
@@ -80,8 +81,12 @@ h2{
 
 
 .submit{
-  margin-top: 30px;
-  margin-left: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  width:min(100%,950px);
+  /* margin-left: 60px; */
 }
 
 .submit button{
@@ -129,7 +134,7 @@ h2{
 }
 
 .secondColumn{
-  background-color: white;
+  /* background-color: white; */
   height: 91vh;
 }
 
@@ -198,4 +203,80 @@ h2{
   overflow: hidden;
   padding: 25px; /* Reduce the padding to avoid overlap */
 
+}
+.contaner2{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.myButton {
+  /* transition: all 0.3s ease; */
+  background-color: #8240EE;
+  border-color: #8240EE;
+  font-size: 18px;
+  border-radius: 5px;
+  padding: 8px 18px;
+  color: rgb(247, 246, 248);
+  transition: background-color 0.3s, color 0.3s;
+  /* other button styles */
+}
+
+.myButton.pressed {
+  background-color: #ccc; /* darker color to give a pressed effect */
+  border-color: #aaa; /* optional: to give depth */
+  color: #666; /* optional: to change text color */
+  transform: scale(0.98); /* slightly smaller to simulate press */
+}
+.Formfill{
+  background: rgba(255, 255, 255, 0);
+ 
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.265);
+  backdrop-filter: blur( 5px );
+  -webkit-backdrop-filter: blur( 5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.FinalForm{
+  margin: 3%;
+}
+.firstColumn{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0);
+
+  backdrop-filter: blur( 5px );
+  -webkit-backdrop-filter: blur( 5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+#BreathIn1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background: rgba(255, 255, 255, 0.742);
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.265);
+  backdrop-filter: blur( 5px );
+  padding: 30px;
+  border-radius: 100%;
+  width:300px;
+  height: 300px;
+  text-transform: uppercase;
+  font-size: 15px;
+  transition: all 0.5s ease;
+}
+#BreathIn1:hover{
+  letter-spacing: 3px;
+  background-color: hsl(261deg 80% 48%);
+  color: hsl(0, 0%, 100%);
+  /* box-shadow: rgb(93 24 220) 0px 7px 29px 0px; */
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.837);
+}
+#BreathIn1:active{
+  transform: translateY(10px);
+  transition: 100ms;
 }

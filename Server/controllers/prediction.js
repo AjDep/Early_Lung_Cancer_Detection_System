@@ -1,4 +1,4 @@
-module.exports.detection = async (req, res,formData) => {
+module.exports.detection = async (req, res,formData, deviceData) => {
     
     let featureString = ""; 
 
@@ -13,13 +13,14 @@ module.exports.detection = async (req, res,formData) => {
         }
     }
 
-    const alkanePercentage = 200;
+    const alkanePercentage = deviceData;
     const features = featureString;
-
+    console.log("Alkane Prectage line 18",alkanePercentage);
     const axios = require('axios');
 
     try {
         const apiURL = "http://127.0.0.1:5000/predict";
+        console.log("line 23 in prediction.js");
         const response = await axios.get(apiURL, {
             params: {
                 alkanePercentage: alkanePercentage,
