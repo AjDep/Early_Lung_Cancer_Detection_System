@@ -19,6 +19,11 @@ import Health from "./../Health/health";
 
 function Dashboard() {
   const [data, setData] = useState("");
+  const [selectedDate, setSelectedDate] = useState(null);
+
+  const handleDateChange = (newDate) => {
+    setSelectedDate(newDate);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -49,7 +54,7 @@ function Dashboard() {
         <Header name="Dashboard" />
         <div className={style.content}>
           <div className={style.container4}>
-            <div>
+            <div className={style.leftsidePanel}>
               <div className={style.container2}>
                 <div>
                   {/* Use optional chaining to safely access FirstName */}
@@ -60,56 +65,50 @@ function Dashboard() {
                     />
                   )}
                 </div>
-                <div>
-                  <Card3 Details="Your Last Breath Test" value={<PieChart />} />
-                </div>
+               
               </div>
 
               {/* <Card Details="Hi Josepine ! Check your health"/> */}
               <div className={style.bottem_left}>
-                <Button variant="light" size="lg">
-                  <h5>
-                    <AssignmentOutlinedIcon /> Medical Document
-                  </h5>
-                </Button>{" "}
-                <Button variant="light" size="lg">
+               
+                <Button className={style.button12} variant="light" size="lg">
                   <h5>
                     <HistoryOutlinedIcon /> History Analysis
                   </h5>
                 </Button>{" "}
-                <Button variant="light" size="lg">
+                <Button className={style.button12} variant="light" size="lg">
                   <h5>
                     <MedicalServicesOutlinedIcon /> Early Diagnosis
                   </h5>
                 </Button>{" "}
-                {/* <Card icon={<AssignmentOutlinedIcon />} value="Medical Document" />
-                                <Card icon={<HistoryOutlinedIcon />} value="History Analysis" />
-                                <Card icon={<MedicalServicesOutlinedIcon />} value="Early Diagnosis" />*/}
+
               </div>
               <div className={style.container3}>
                 <div>
                   <p>View Your Test History</p>
                 </div>
-                <div>
-                  <BasicSelect />
-                </div>
+                
               </div>
 
               <div>
                 <ColumnChart />
               </div>
             </div>
-            <div style={{ marginRight: "35px", marginTop: "20px" }}>
-              <div className="calendar-card">
-                <Calendar />
-              </div>
-              <div className={style.appoinments}>
-                <div>
-                  <h5>Upcoming Test and Appoinments</h5>
-                </div>
-                <List />
+
+            {/* The Right hand side plane with doc oppoinments and date */}
+            <div className={style.RightsidePanel}>
+            <div className="calendar-card">
+            <h5>Upcoming Test and Appointments</h5>
+             <Calendar onDateChange={handleDateChange} onSelect={(date, { source }) => {if (source === 'date') {console.log('Panel Select:', source);}}}/>
+            </div>
+            <div className={style.appointments}>
+              <List selectedDate={selectedDate} />
               </div>
             </div>
+
+          
+
+
           </div>
         </div>
       </div>

@@ -1,15 +1,14 @@
-import * as React from 'react';
+// BasicSelect.jsx
+import React from 'react';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-export default function BasicSelect() {
-  const [age, setAge] = React.useState('');
-
+function BasicSelect(props) {
   const handleChange = (event) => {
-    setAge(event.target.value);
+    props.setMonth(event.target.value);
   };
 
   return (
@@ -19,15 +18,27 @@ export default function BasicSelect() {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={age}
+          value={props.selectedMonth}
           label="Age"
           onChange={handleChange}
         >
-          <MenuItem value={10}>Jan</MenuItem>
-          <MenuItem value={20}>Feb</MenuItem>
-          <MenuItem value={30}>March</MenuItem>
+          <MenuItem value={0}>All Months</MenuItem>
+          <MenuItem value={1}>Jan</MenuItem>
+          <MenuItem value={2}>Feb</MenuItem>
+          <MenuItem value={3}>Mar</MenuItem>
+          <MenuItem value={4}>Apr</MenuItem>
+          <MenuItem value={5}>May</MenuItem>
+          <MenuItem value={6}>Jun</MenuItem>
+          <MenuItem value={7}>Jul</MenuItem>
+          <MenuItem value={8}>Aug</MenuItem>
+          <MenuItem value={9}>Sep</MenuItem>
+          <MenuItem value={10}>Oct</MenuItem>
+          <MenuItem value={11}>Nov</MenuItem>
+          <MenuItem value={12}>Dec</MenuItem>
         </Select>
       </FormControl>
     </Box>
   );
 }
+
+export default BasicSelect;

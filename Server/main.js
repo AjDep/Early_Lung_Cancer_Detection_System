@@ -1,20 +1,27 @@
-var SerialPort = require('serialport');
-var SerialPort = Serialport.SerialPort;
-var portName = process.argv(2);
+const { SerialPort } = require('serialport');
+const { ReadlineParser } = require('@serialport/parser-readline');
+const port = new SerialPort({ path: 'COM5', baudRate: 9600 });
 
-var myPort = new SerialPort(portName,{
-    baudRate:9600,
-    parser:serialport.parsers.readline("\r\n")
-})
+const parser = port.pipe(new ReadlineParser({ delimiter: '\r\n' }));
 
-myPort.on('open',onOpen);
-myPort.on('data',onData);
+port.on('error', (err) => {
+    console.error('Device not connected');
+    if(err.message){
+        return null;
+    }else{
+        console.error('Somthing going wrong');
+    }
+});
 
-function onOpen(){
-    console.log("Open connection");
+parser.on('error', (err) => {
+    console.error('Parser error:', err.message);
+});
+
+parser.on('data', console.log);
+
+function onData() {
+    const data = null;
+    return data;
 }
 
-function onData(){
-    Data = 100;
-    console.log("On Data: "+data);
-}
+module.exports = onData;

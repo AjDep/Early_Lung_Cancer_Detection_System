@@ -1,0 +1,12 @@
+.AlkaneCard{
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 1px 5px 0px rgba(102, 100, 100, 0.496);
+    border-radius: 30px;
+    padding:25px;
+
+}
+.AlknaeCardDeatils{
+    font-size: large;
+}

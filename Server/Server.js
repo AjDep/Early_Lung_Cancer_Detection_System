@@ -6,13 +6,22 @@ const multer = require("multer");
 const EmployeeModel = require('./models/Employee');
 const { ObjectId } = require('mongodb');
 const fs = require('fs').promises; // Import the fs modul
-const SerialPort = require('serialport');
-const Readline = require('@serialport/parser-readline');
+// const SerialPort = require('serialport');
+// const Readline = require('@serialport/parser-readline');
 const app = express();
-const myid = "65f2b0f77cd285a6382417a4";
-const patientID = "P001";
-const range=200;
+// const Paient = require('./models/Profile');
+const bcrypt = require('bcryptjs');
+const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
+const onData = require('./main.js');
 
+let myid;
+
+let patientID;
+
+let data=onData();
+let range=data;
+console.log(range)
 // Middleware
 app.use(cors());
 app.use(express.json());
@@ -34,21 +43,21 @@ app.listen(5038, () => {
         database = client.db(DATABASE_NAME);
         console.log("Mongo DB connected");
                 // Retrieve patientID from MongoDB
-                database.collection('Paient').findOne({ _id: myid }, (err, result) => {
-                    if (err) {
-                        console.error("Error retrieving patientID:", err);
-                        return;
-                    }
-                    if (result) {
-                        patientID = result.PatientID;
+    //             database.collection('Paient').findOne({ _id: myid }, (err, result) => {
+    //                 if (err) {
+    //                     console.error("Error retrieving patientID:", err);
+    //                     return;
+    //                 }
+    //                 if (result) {
+    //                     patientID = result.PatientID;
 
-                        console.log("Retrieved patientID:", patientID);
-                    } else {
+    //                     console.log("Retrieved patientID:", patientID);
+    //                 } else {
                     
                         
-                        console.log("PatientID not found");
-                    }
-    });
+    //                     console.log("PatientID not found");
+    //                 }
+    // });
 });
 });
 
@@ -58,23 +67,67 @@ app.use(predictionRoutes);
 
 // Route to handle POST request for form data
 app.post('/api/customer/data', (req, res) => {
-  // Retrieve data from the request body
-  const formData = req.body;
+    // Retrieve data from the request body
+    const formData = req.body;
+    const data = onData();
+    console.log("Line 54 in Server.js", data);
+    // Log the received data
+    // console.log('Received form data:', formData);
+    const predictionModule = require('../Server/controllers/prediction');
+  
+    predictionModule.detection(req, res, formData, data)
+      .then((prediction) => {
+        const currentDate = new Date();
+        const Year = currentDate.getFullYear();
+        const Month = currentDate.getMonth() + 1; // Months are zero indexed, so add 1
+        const Day = currentDate.getDate();
+        const hour = currentDate.getHours();
+        const minute = currentDate.getMinutes();
+        const second = currentDate.getSeconds();
+        const DateObject = {Object:{ Year, Month, Day }};
+        const DateString=`${Year}-${Month}-${Day}`;
+        const TimeString=`${hour}:${minute}:${second}`;
+        // Insert the prediction into the collection
+        database.collection('FinalResult').insertOne(
+          { PatientID: patientID, Risk: prediction,AlkaneRange:onData(),ResultID:58,date:DateString,time:TimeString},
+          
+          (error, result) => {
+            if (error) {
+              console.error('Error inserting document:', error);
+              res.status(500).json({ error: 'An error occurred while inserting the prediction.' });
+            } else {
+              // Send the prediction back to the client
+              res.status(200).json({ message: prediction });
+              console.log(prediction);
+              console.log(onData());
+              ///take the response from here 
+            }
+          }
+        );
+        database.collection('MedicalAnylasis').insertOne(
+            { PatientID: patientID, Risk: prediction, AlkaneRange: onData(), ResultID: 58, Date:DateObject},
 
-  // Log the received data
-  //console.log('Received form data:', formData);
-  const predictionModule = require('../Server/controllers/prediction');
-
-  predictionModule.detection(req, res, formData)
-    .then((prediction) => {
-      // Send the prediction back to the client
-      res.json({ message: prediction });
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-      res.status(500).json({ error: 'An error occurred while processing the prediction.' });
-    });
-});
+            (error, result) => {
+                if (error) {
+                    console.error('Error inserting document:', error);
+                    res.status(500).json({ error: 'An error occurred while inserting the prediction.' });
+                } else {
+                    // Send the prediction back to the client
+                    console.log(prediction);
+                    console.log(onData());
+                    ///take the response from here 
+                }
+            }
+        );
+    
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        res.status(500).json({ error: 'An error occurred while processing the prediction.' });
+      });
+  });
+  
+  
 
 
 app.get('/api/customer/lastResult', async (req, res) => {
@@ -263,7 +316,212 @@ app.get('/api/customer/:id', (req, res) => {
         res.status(500).json({ error: "Error" });
     }
 });
+app.get('/api/patient/AllFinalResults',  (request, response) => {
+    database.collection("FinalResult")
+        .find({PatientID:patientID})
+        .toArray()
+        .then(AllResults => {
+            response.status(200).json(AllResults);
+        })
+        .catch(error => {
+            console.error("Error retrieving data from MongoDB:", error);
+            response.status(500).json({ error: "Could not fetch documents" });
+        });
+});
+app.get('/api/patient/AllFinalResults/count',  (request, response) => {
+    database.collection("FinalResult")
+        .find({ PatientID: patientID })
+        .count()
+        .then(count => {
+            response.status(200).json({ count });
+        })
+        .catch(error => {
+            console.error("Error retrieving data from MongoDB:", error);
+            response.status(500).json({ error: "Could not fetch documents count" });
+        });
+});
+app.get('/api/patient/AllFinalResults/count/positive', async (request, response) => {
+    try {
+        const count = await database.collection("FinalResult").aggregate([
+            {
+                $match: {
+                    result: "positive",
+                    PatientID: patientID // Add PatientID condition here
+                }
+            },
+            {
+                $count: "count"
+            }
+        ]).toArray();
 
+        // Extract the count from the result array
+        const totalCount = count.length > 0 ? count[0].count : 0;
+
+        response.status(200).json({ count: totalCount });
+    } catch (error) {
+        console.error("Error retrieving data from MongoDB:", error);
+        response.status(500).json({ error: "Could not fetch document count" });
+    }
+});
+app.get('/api/patient/AllFinalResults/count/negative', async (request, response) => {
+    try {
+        const count = await database.collection("FinalResult").aggregate([
+            {
+                $match: {
+                    result: "negative",
+                    PatientID: patientID // Add PatientID condition here
+                }
+            },
+            {
+                $count: "count"
+            }
+        ]).toArray();
+
+        // Extract the count from the result array
+        const totalCount = count.length > 0 ? count[0].count : 0;
+
+        response.status(200).json({ count: totalCount });
+    } catch (error) {
+        console.error("Error retrieving data from MongoDB:", error);
+        response.status(500).json({ error: "Could not fetch document count" });
+    }
+});
+
+// User signup 
+
+app.post('/signup', async (req, res) => {
+    console.log("Line 251");
+    const email = req.body.email;
+    const password = req.body.password;
+    try {
+        const existingUser = await database.collection("Paient").findOne({ email: email });
+        const userCount = await database.collection("Paient")
+        if (existingUser) {
+            return res.status(202).json({ message: 'User already exists' });
+        }
+        const hashedPassword = await bcrypt.hash(password, 12);
+        const patientCount = await database.collection("Paient").countDocuments()+1;
+        let patientID;
+
+        if(patientCount<10){
+            patientID = 'P00'+ patientCount.toString();
+        }else{
+            patientID = 'P0'+ patientCount.toString();
+        }
+        await database.collection("Paient").insertOne({
+            email: email,
+            password: hashedPassword,
+            PatientID: patientID,
+            name: {FirstName:'User',LastName:patientID},
+            Address:null,
+            ContactNumber: null,
+            ProfilePicture: null,
+            BirthDay:null,
+            Gender:null,
+            Age:null,
+            AppointmentID:null,
+            DoctorID:null,
+        });
+        res.status(200).json({ message: 'User profile is created successfully' });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+
+});
+
+app.post('/login', async (req, res) => {
+
+    const email = req.body.email;
+    const password = req.body.password;
+    let loadedUser;
+
+    try{
+        const existingUser = await database.collection("Paient").findOne({ email: email });
+        if (existingUser) {
+            if( await bcrypt.compare(password, existingUser.password)){
+                const accessToken = jwt.sign({ email: existingUser.email, id: existingUser.PatientID}, 'secret', { expiresIn: "24h" });
+                myid = existingUser._id;
+                patientID= (existingUser.PatientID);
+                console.log(existingUser,myid);
+                return res.status(200).json({message: 'User profile is authenticated successfully',token:accessToken,myid:myid});
+            }else{
+                return res.status(202).json({message: 'User credentials mismatch'});
+            }
+        }
+        return res.status(202).json({ message: 'User profile does not exist. Create an Account' });
+    }catch (error){
+        console.log(error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
+app.post('/profile', async (req,res) => {
+
+    if(req.body.details === 'General'){
+
+        //const NIC = req.body.NIC;
+        const name = req.body.name;
+        const address = req.body.Address;
+        //const postal_code = req.body.PostalCode;
+        const dob = req.body.BirthDay;
+        const age = req.body.Age;
+        const gender = req.body.Gender;
+
+        try{
+        const user = await database.collection("Paient").updateOne({PatientID:req.body.id},
+            {
+                $set:{
+                    name : name,
+                    Address : address,
+                    BirthDay : dob,
+                    Age : age,
+                    Gender : gender
+                }
+            });
+        return res.status(200).json({ message: 'Successfully Saved' });
+        }catch (error){
+            res.status(500).json({ message: 'Detail update was unsuccesful' });
+        }
+
+    }else if(req.body.details === 'Credentials'){
+
+        const email = req.body.email;
+        const password = req.body.password;
+        const hashedPassword = await bcrypt.hash(password, 12);
+        try{
+        const user = await database.collection("Paient").updateOne({PatientID:req.body.id},
+            {
+                $set:{
+                    email:email,
+                    password:hashedPassword
+                }
+            
+            });
+        return res.status(200).json({ message: 'Credentials Successfully Updated' });
+        }catch(error){
+            res.status(500).json({ message: 'Credentials update was unsuccesful' });
+        }
+    }
+
+});
+
+// app.post('/hardware', async (req,res)=>{
+
+//     const hardwareData = await hardwareDataCatcher;
+//     console.log("Line 357 ",hardwareData);
+    
+// });
+
+app.get('/hardware', (req, res) => {
+    data = onData(); // Get data from the hardware
+    console.log("Line 363 ",data);
+    if (data !== null) {
+        res.status(200).json({ message: 'Device is connected. Alkane value is read from the device' , data: data });
+    } else {
+        res.status(404).json({ message: 'Device is not connected. Try again after connecting the device' });
+    }
+});
 
 // const port = new SerialPort('COM5', { baudRate: 9600 }); // Change the port accordingly
 

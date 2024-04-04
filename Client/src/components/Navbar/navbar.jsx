@@ -14,7 +14,7 @@ function Navbar(props){
     if(props.theme === "light"){
         if(props.route === "Dashboard"){
             return(
-                <NavLink to={"/"} >
+                <NavLink to={"/dashboard"} >
                     {(linkProps)=>{
                         return(
                             <div className={linkProps.isActive ? style.light_container_active :style.light_container} >
@@ -74,7 +74,7 @@ function Navbar(props){
             );
         }else if(props.route === "LogOut"){
             return(
-                <NavLink to={"/logout"}>
+                <NavLink to={"/"}>
                     {(linkProps)=>{
                         return(
                             <div className={linkProps.isActive ? style.light_container_active :style.light_container}>

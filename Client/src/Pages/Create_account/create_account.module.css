@@ -14,8 +14,11 @@
   width: 750px;
 }
 
-.form {
-  /* Add your form styles here */
+#createACC{
+  width:fit-content;
+  padding:10px;
+  background-color: #ffffff;
+  border-radius: 30px;
 }
 
 .create h1 {
@@ -26,7 +29,13 @@
   letter-spacing: 10px;
   
 }
-
+.login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap:20px;
+}
 .create h2 {
   color: white;
   font-size: 30px;

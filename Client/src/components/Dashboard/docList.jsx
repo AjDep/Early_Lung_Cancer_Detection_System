@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Style from '../../components/Dashboard/docList.module.css';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { style } from '@mui/system';
 
-const ListComponent = () => {
+const ListComponent = ({ selectedDate }) => {
   const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
@@ -22,27 +21,25 @@ const ListComponent = () => {
         console.error('Error fetching data:', error);
       });
   }, []);
+  
+  const filterData = selectedDate ? appointments.filter(item => item.appointment_date === selectedDate.format('YYYY-MM-DD')) : appointments;
 
   return (
     <div>
-      <ul className={Style.List}>
-        {appointments.map(appointment => (
-          <li className={Style.ListItem} key={appointment.doctor_name}>
+      <div className={Style.List}>
+        {filterData.map(appointment => (
+          <div className={Style.ListItem} key={appointment.doctor_name}>
             <Row className={Style.appointment}>
               <Col sm={5}>
-              <h6>{appointment.doctor_name}</h6>
+                <h6>{appointment.doctor_name}</h6>
               </Col>
               <Col sm={7}>
-               <p>{appointment.appointment_date}<br></br>
-            {appointment.hospital}</p>
+                <p>{appointment.appointment_date}<br />{appointment.hospital}</p>
               </Col>
-            
-           
             </Row>
-            
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

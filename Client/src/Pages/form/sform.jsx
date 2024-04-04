@@ -5,16 +5,18 @@ import ListItemText from "@mui/material/ListItemText";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 import Switch from "@mui/material/Switch";
+import style1 from "../Health/health.module.css";
 
 const AntSwitch = styled(Switch)(({ theme }) => ({
   // Your switch styling
 }));
 
 const style = {
-  // Your list style
+
 };
 
 function ConfirmationDialogRaw(props) {
+  const { isTestStarted } = props;
   const [formData, setFormData] = useState({
     "Yellow Fingers": false,
     "Anxiety": false,
@@ -56,11 +58,16 @@ function ConfirmationDialogRaw(props) {
         // Handle error
         setSubmissionStatus("error");
       });
+      if (submissionStatus === "success") {
+        window.alert("Form submitted successfully!");
+    } else if (submissionStatus === "error") {
+        window.alert("Error submitting form. Please try again later.");
+    }
   };
 
   return (
-    <div>
-      <List sx={style}>
+    <div className={style1.FinalForm}>
+      <List className={style1.Formfill}>
         {Object.keys(formData).map((key) => (
           <ListItem key={key}>
             <ListItemText primary={key} />
@@ -74,14 +81,11 @@ function ConfirmationDialogRaw(props) {
             <Typography className="p-1">Yes</Typography>
           </ListItem>
         ))}
+        <div className={style1.submit}>
+      <button onClick={handleSubmit} className={style1.submitBtn}>Submit</button>
+      </div>
       </List>
-      <button onClick={handleSubmit}>Submit</button>
-      {submissionStatus === "success" && (
-        <div>Form submitted successfully!</div>
-      )}
-      {submissionStatus === "error" && (
-        <div>Error submitting form. Please try again later.</div>
-      )}
+      
     </div>
   );
 }

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Chart } from "react-google-charts";
 import s from '../ColumnChart/ColumnChart.module.css'
+import SelectBos from "../BasicSelect/BasicSelect"
 
 function ColumnChart() {
   const [apiData, setApiData] = useState([]);
-
+  const [selectedMonth, setSelectedMonth] = useState();
   useEffect(() => {
     fetch('http://localhost:5038/api/Customer/Chart')
       .then(response => response.json())
@@ -13,10 +14,20 @@ function ColumnChart() {
   }, []);
 
   const chartData = [["Date", "Alkane percentage", { role: "style" }]];
-
-  apiData.forEach(item => {
+  const filteredData = selectedMonth ? apiData.filter(item => item.Date.Object.Month=== selectedMonth) :apiData;
+  if (!filteredData.length) {
+    // Handle empty data case: show message
+  
+    return  <div>
+      <SelectBos setMonth={setSelectedMonth} />
+      No data available for this month
+      </div>;
+  }
+  
+  console.log(selectedMonth)
+  filteredData.forEach(item => {
     // Extracting date and month from the Date object
-    const date = `${item.Date.Object.Date}/${item.Date.Object.Month}`;
+    const date = `${item.Date.Object.Day}/${item.Date.Object.Month}`;
     chartData.push([date, item.AlkaneRange,item.color]);
   });
 
@@ -30,6 +41,10 @@ function ColumnChart() {
 
   return (
     <div className={s.ColumnChart}>
+      <div>
+      <SelectBos setMonth={setSelectedMonth} />
+            
+
     <Chart 
       chartType="ColumnChart"
       width="850px"
@@ -37,6 +52,7 @@ function ColumnChart() {
       data={chartData}
       options={chartOptions}
     />
+    </div>
     </div>
   );
 }
