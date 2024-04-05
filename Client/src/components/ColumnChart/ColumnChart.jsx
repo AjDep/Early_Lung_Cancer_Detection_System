@@ -28,12 +28,12 @@ function ColumnChart() {
   filteredData.forEach(item => {
     // Extracting date and month from the Date object
     const date = `${item.Date.Object.Day}/${item.Date.Object.Month}`;
-    chartData.push([date, item.AlkaneRange,item.color]);
+    chartData.push([date,parseFloat( item.AlkaneRange),item.color]);
   });
 
   const chartOptions = {
     title: "Alkane Percentage Chart",
-    hAxis: { title: "Date" },
+    hAxis: { title: "Date",format:'dd?MM' },
     vAxis: { title: "Alkane percentage" },
     is3D:true
     // Add other options as needed...

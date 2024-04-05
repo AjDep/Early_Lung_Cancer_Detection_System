@@ -66,6 +66,7 @@ function Sign() {
             <div className={style.login}>
               <h1>LOGIN</h1>
               <h2>Stay Updated on Your Healthy World!</h2>
+              <div className={style.inputs}>
               <form onSubmit={handleSubmit}>
                 <div className={style.input}>
                   <input 
@@ -85,6 +86,7 @@ function Sign() {
                     required
                   />
                 </div>
+                
                 {error.message && (
                   <p style={{ color: 'red', textAlign: 'center', marginLeft: '-10px' }}>
                     {error.message}{' '}
@@ -97,6 +99,7 @@ function Sign() {
                   <button type="submit">Login Now</button>
                 </div>
               </form>
+              </div>
               {/* <div className={style.socialLogin}>
                 <div className={style.googleLogin}>
                   <button>

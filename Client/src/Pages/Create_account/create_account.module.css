@@ -17,8 +17,14 @@
 #createACC{
   width:fit-content;
   padding:10px;
-  background-color: #ffffff;
-  border-radius: 30px;
+  border-radius: 20px;
+  width: 400px;
+  margin-top: 30px;
+  margin-right: 100px;
+  background-color: #631ff6;
+  color:white ;
+  margin-bottom: 30px;
+  font-weight: bold;
 }
 
 .create h1 {
@@ -27,8 +33,10 @@
   font-size: 50px;
   font-weight: bold;
   letter-spacing: 10px;
-  
+  margin-top: 60px;
+  margin-left: 30px;
 }
+
 .login{
   display: flex;
   justify-content: center;
@@ -42,6 +50,9 @@
   font-weight: bold;
   padding-left: 300px;
   margin-bottom: 0px;
+  margin-left: 30px;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 input[type="text"],
@@ -55,13 +66,15 @@ input[type="confirmPassword"] {
   border-radius: 20px;
   border-color: #9069ff;
   background-color: rgba(247, 244, 250, 0.727);
-  margin-left: 35px;
+  margin-left: 75px;
+  margin-top: 10px;
 }
 
 input[type="password"],
 input[type="confirmPassword"] {
-  margin-left: 203px;
+  margin-left: 243px;
   margin-bottom: 20px;
+
 }
 
 input[type="text"] {
@@ -100,6 +113,8 @@ input[type="submit"]:hover {
 
 .agreement {
   margin-top: 20px;
+  margin-left: 60px;
+  margin-bottom: 30px;
 }
 
 .checkbox {
@@ -209,7 +224,20 @@ input[type="submit"]:hover {
   
 }
 
+.loginHover:hover{
+ color: black;
+ 
+}
 
+.member button{
+  margin-left: 30px;
+  color: black;
+}
+
+.member p{
+ font-weight: bold;
+ margin-right: 60px;
+}
 
 
 .secondLine {
@@ -226,7 +254,7 @@ input[type="submit"]:hover {
 .wordOr {
     background-color: #000;
    margin-left: 1000px;
-    margin-top: 30px;
+    margin-top: 60px;
   }
   
 
@@ -246,6 +274,8 @@ input[type="submit"]:hover {
     top: 540px;
     left: 1237px;
     overflow: hidden;
+    margin-top: 30px;
+    margin-left: 50px;
   }
 
   .or {
@@ -259,7 +289,8 @@ input[type="submit"]:hover {
     font-size: 18px;
     opacity: 1;
     text-align: left;
-    margin-left: 830px;
+    margin-left: 870px;
+    margin-top: 30px;
   }
   .box4 {
     width: 229px;
@@ -268,12 +299,17 @@ input[type="submit"]:hover {
     opacity: 1;
     position: absolute;
     top: 542px;
-    left: 955px;
+    left: 985px;
     overflow: hidden;
+    margin-top: 30px;
   }
 
   .loginHover:hover {
     
     color: white;
     cursor: pointer; /* Change cursor to pointer */
+  }
+
+  .welcomeMessage{
+    margin-top: 50px;
   }

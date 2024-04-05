@@ -118,7 +118,7 @@ function Create_account() {
             <img src={girl_with_laptop} alt="" className={style.girl_with_laptop} />
             <div className={style.innerBox}>
               <p className={style.welcomeMessage}>
-                Hello<span className={style.backText}>there !</span>
+                Hello<span className={style.backText}>there!</span>
               </p>
             </div>
           </div>

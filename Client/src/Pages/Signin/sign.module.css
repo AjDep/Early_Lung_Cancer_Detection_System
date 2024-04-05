@@ -19,6 +19,8 @@
   font-size: 50px;
   font-weight: bold;
   letter-spacing: 10px;
+  margin-top: 90px;
+  margin-bottom: 30px;
 }
 
 .login h2{
@@ -26,6 +28,7 @@
     font-size: 30px;
     font-weight: bold;
     padding-left: 180px;
+    margin-bottom: 60px;
    
 }
 
@@ -54,18 +57,23 @@
   border-color: #9069FF;
   background-color: rgba(184, 140, 255, 0.31);
   margin-top: 20px;
-  
 }
+
+.inputs input[placeholder="Enter Password"]{
+  margin-left: 200px;
+  margin-top: 20px;
+}
+
 
 .button button{
   background-color: #5740DE;
   font-size: 20px;
-  margin-left: 15px;
+  margin-left: 1px;
   width: 350px;
   height: 50px;
   border:none;
   color: white;
-  margin-top: 20px;
+  margin-top: 40px;
   border-radius: 10px;
 
 }
@@ -143,7 +151,7 @@
     position: absolute;
     overflow: hidden;
     margin-left: 60px;
-    margin-top: 20px;
+    margin-top: 70px;
     position: relative; /* Ensure relative positioning for absolute children */
   }
   
@@ -155,8 +163,8 @@
     position: absolute;
     border-radius: 70px;
     overflow: hidden;
-    margin-left: 1050px;
-    margin-top: 50px;
+    margin-left: 1120px;
+    margin-top: 120px;
   }
 
   .innerBox {
@@ -181,6 +189,7 @@
     padding-left: 7px;
     letter-spacing: 10px;
     font-style:italic;
+    margin-top: 50px;
   }
   .backText {
     display: block; /* Display "Back" as block to position it below "Welcome" */
