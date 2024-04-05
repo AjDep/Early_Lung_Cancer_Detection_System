@@ -514,7 +514,8 @@ app.post('/profile', async (req,res) => {
 // });
 
 app.get('/hardware', (req, res) => {
-    data = onData(); // Get data from the hardware
+    data = onData();
+    range = data; // Get data from the hardware
     console.log("Line 363 ",data);
     if (data !== null) {
         res.status(200).json({ message: 'Device is connected. Alkane value is read from the device' , data: data });
