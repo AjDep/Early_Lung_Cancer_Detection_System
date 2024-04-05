@@ -208,7 +208,7 @@ function Profile() {
 
       const cancel = () => {
             console.log('Cancelled');
-            setShowPopup(false);+
+            setShowPopup(false);
       };
 
       // Assume formFields is defined to hold the current fields for the popup
