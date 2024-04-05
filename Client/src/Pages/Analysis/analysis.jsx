@@ -159,8 +159,8 @@ function Analysis(){
 
   const cards = [
     {Details: "Number of people with the same result.", value:Ecount},
-    {Details: "Number of cancer patients with identical alkane levels.", value: Ccount},
-    {Details: "Non-cancer individuals with equivalent alkane levels.", value: NCcount},
+    {Details: "Number of High risk individuals  with identical alkane levels.", value: Ccount},
+    {Details: "Number of Lower risk  individuals with equivalent alkane levels.", value: NCcount},
     {Details: "Similar alkane levels as a percentage of total users.", value:similarAlkanePercentageOfTotalUsers+"%" },
     {Details: "Cancer-diagnosed individuals as a percentage.", value: similarAlkanePercentageOfTotalUsersWithCancer +"%"},
   ];
