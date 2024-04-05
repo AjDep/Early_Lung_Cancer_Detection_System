@@ -13,6 +13,7 @@ import Form2 from './Pages/form/paient.jsx';
 import Test from './Pages/Test/test.jsx';
 import CreateAccount from './Pages/Create_account/create_account.jsx';
 import Signin from './Pages/Signin/sign.jsx';
+import Settings from './Pages/Settings/profile.jsx';
 // import Settings from "./Pages/Settings/settings.jsx";
 // import Profile from "./Pages/Settings/profile.jsx";
 const router = createBrowserRouter([
@@ -28,12 +29,16 @@ const router = createBrowserRouter([
         element:<Analysis/>,
       },
       {
-        path:"/Health",
+        path:"/health",
         element:<Health/>,
       },
       {
-        path:"/History",
+        path:"/history",
         element:<History/>,
+      },
+      {
+        path:"/settings",
+        element:<Settings/>,
       },
       {
         path:"/form",
