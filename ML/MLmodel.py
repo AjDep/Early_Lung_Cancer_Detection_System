@@ -134,7 +134,7 @@ def AlkanePercentageDetector(AlkanePercentage):
 
     #print(x_test)
     #print(model.predict(x_test))
-    device_prediction = model.predict([[int(AlkanePercentage)]])
+    device_prediction = model.predict([[int(float(AlkanePercentage))]])
     print("Device Detect ",device_prediction)
     return device_prediction
     # import seaborn as sns
